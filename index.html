@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NortheastGenAI 2025 — Workshop on AI and Northeast Indian Knowledge Systems</title>
-  <meta name="description" content="NortheastGenAI 2025 is a non-archival virtual workshop exploring AI-generated research on Northeast India's languages, cultures, and ecosystems." />
+  <title>NortheastGenAI 2025 — Workshop on AI-Generated Research for Northeast Indian Knowledge Systems</title>
+  <meta name="description" content="NortheastGenAI 2025 is a non-archival virtual workshop exploring AI-authored and AI-reviewed research on Northeast India's languages, cultures, and ecosystems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500&family=Source+Code+Pro:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito+Sans:wght@400;500;600;700&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #ffffff;
-      --bg2:      #f7f6f4;
-      --bg3:      #f0ede8;
-      --border:   #ddd9d3;
-      --border2:  #c8c3bc;
-      --accent:   #8b3a1a;
-      --accent2:  #a84d28;
-      --text:     #1a1714;
-      --body:     #3a3530;
-      --muted:    #7a7268;
-      --light:    #a89f94;
+      --bg:        #ffffff;
+      --bg2:       #f7f5f2;
+      --bg3:       #efece8;
+      --border:    #dedad4;
+      --border2:   #c9c4bc;
+      --accent:    #8b2e12;
+      --accent-lt: #b84220;
+      --accent-bg: rgba(139,46,18,0.06);
+      --accent-bd: rgba(139,46,18,0.22);
+      --text:      #1a1714;
+      --body:      #2e2b27;
+      --muted:     #6b6560;
+      --white:     #ffffff;
     }
 
     html { scroll-behavior: smooth; }
@@ -30,353 +33,272 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Source Sans 3', sans-serif;
-      font-weight: 300;
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
       line-height: 1.7;
     }
 
+    /* ── NAV ── */
     nav {
-      position: sticky;
-      top: 0;
+      position: fixed;
+      top: 0; left: 0; right: 0;
       z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      background: var(--white);
+      border-bottom: 2px solid var(--accent);
+      padding: 0 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 5rem;
+      height: 58px;
     }
 
     .nav-logo {
-      font-family: 'EB Garamond', serif;
+      font-family: 'Lora', serif;
       font-size: 1rem;
-      color: var(--text);
+      font-weight: 700;
+      color: var(--accent);
       text-decoration: none;
+      letter-spacing: 0.01em;
     }
 
-    .nav-logo span { color: var(--accent); }
-
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
     .nav-links a {
-      font-size: 0.8rem;
-      color: var(--muted);
+      color: var(--body);
       text-decoration: none;
-      letter-spacing: 0.04em;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--accent); }
 
-    .hero {
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--body);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 58px; left: 0; right: 0;
+      background: var(--white);
       border-bottom: 1px solid var(--border);
-      padding: 5rem 5rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 5rem;
-      align-items: start;
-      max-width: 1200px;
+      z-index: 99;
+      padding: 1rem 2rem;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      display: block;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--body);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 6.5rem 2.5rem 0;
+      background: var(--white);
+    }
+
+    .hero-top {
+      max-width: 1060px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 290px;
+      gap: 4rem;
+      align-items: start;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .hero-kicker {
       font-family: 'Source Code Pro', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
       color: var(--accent);
-      margin-bottom: 1.6rem;
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-    }
-
-    .hero-kicker::before {
-      content: '';
-      display: inline-block;
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeIn 0.5s 0.1s forwards;
     }
 
     .hero-title {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(2.4rem, 4vw, 3.6rem);
-      font-weight: 500;
-      line-height: 1.14;
-      letter-spacing: -0.01em;
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.18;
       color: var(--text);
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeIn 0.6s 0.2s forwards;
     }
 
-    .hero-title em { font-style: italic; color: var(--accent); }
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
 
-    .hero-desc {
-      font-size: 0.95rem;
+    .hero-sub {
+      font-size: 1.05rem;
       color: var(--body);
       line-height: 1.8;
-      max-width: 540px;
+      max-width: 580px;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeIn 0.6s 0.3s forwards;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeIn 0.6s 0.4s forwards;
     }
 
-    .hero-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
-    .badge {
-      display: inline-block;
-      border: 1px solid var(--border2);
-      padding: 0.25rem 0.75rem;
+    .tag {
+      font-family: 'Source Code Pro', monospace;
       font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      font-family: 'Source Code Pro', monospace;
-    }
-
-    .badge.ab {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(139,58,26,0.04);
-    }
-
-    .hero-sidebar {
-      border-left: 1px solid var(--border);
-      padding-left: 2.5rem;
-    }
-
-    .sidebar-item {
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .sidebar-item:last-child { border-bottom: none; }
-
-    .sidebar-label {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 0.3rem;
+      font-weight: 500;
+      color: var(--muted);
+      border: 1px solid var(--border2);
+      padding: 0.28rem 0.7rem;
+      background: var(--bg2);
     }
 
-    .sidebar-value {
-      font-family: 'EB Garamond', serif;
-      font-size: 1rem;
-      color: var(--text);
+    .tag.accent-tag {
+      color: var(--accent);
+      border-color: var(--accent-bd);
+      background: var(--accent-bg);
     }
 
-    .sidebar-note { font-size: 0.73rem; color: var(--muted); margin-top: 0.1rem; }
+    .hero-cta {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeIn 0.6s 0.5s forwards;
+    }
 
     .btn-primary {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       background: var(--accent);
       color: #fff;
       text-decoration: none;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      border: 1px solid var(--accent);
+      padding: 0.78rem 1.6rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: 2px solid var(--accent);
       transition: background 0.2s;
-      margin-top: 1.6rem;
     }
 
-    .btn-primary:hover { background: var(--accent2); }
+    .btn-primary:hover { background: var(--accent-lt); border-color: var(--accent-lt); }
 
-    .btn-outline {
-      display: inline-block;
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
       background: transparent;
-      color: var(--accent);
-      text-decoration: none;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      border: 1px solid var(--accent);
-      transition: background 0.2s;
-      margin-top: 1.6rem;
-      margin-left: 0.6rem;
-    }
-
-    .btn-outline:hover { background: rgba(139,58,26,0.05); }
-
-    .section-wrap { border-bottom: 1px solid var(--border); }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4.5rem 5rem;
-    }
-
-    .section-header {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 3rem;
-      margin-bottom: 3rem;
-      align-items: start;
-    }
-
-    .section-num {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--light);
-      padding-top: 0.45rem;
-    }
-
-    .section-title {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(1.5rem, 2.2vw, 2rem);
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--text);
-    }
-
-    .section-subtitle {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-      line-height: 1.65;
-    }
-
-    .two-col { display: grid; grid-template-columns: 180px 1fr; gap: 3rem; }
-
-    .about-text p {
-      font-size: 0.92rem;
       color: var(--body);
-      line-height: 1.85;
-      margin-bottom: 1rem;
+      text-decoration: none;
+      padding: 0.78rem 1.6rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 2px solid var(--border2);
+      transition: border-color 0.2s, color 0.2s;
     }
 
-    .about-text p strong { color: var(--text); font-weight: 500; }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .pullquote {
-      border-left: 2px solid var(--accent);
-      padding: 0.8rem 1.4rem;
-      margin: 1.4rem 0;
+    /* Hero sidebar */
+    .hero-sidebar {
+      opacity: 0;
+      animation: fadeIn 0.6s 0.35s forwards;
+    }
+
+    .info-block {
+      border: 1px solid var(--border);
       background: var(--bg2);
+      padding: 1.2rem 1.3rem;
+      margin-bottom: 0.8rem;
     }
 
-    .pullquote p {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.02rem !important;
-      font-style: italic;
-      color: var(--text) !important;
-      line-height: 1.6 !important;
-      margin: 0 !important;
+    .info-block.key {
+      border-color: var(--accent-bd);
+      border-left: 4px solid var(--accent);
+      background: var(--accent-bg);
     }
 
-    .topics-table { width: 100%; border-collapse: collapse; }
-
-    .topics-table th {
+    .info-block-label {
       font-family: 'Source Code Pro', monospace;
-      font-size: 0.6rem;
+      font-size: 0.64rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--light);
-      text-align: left;
-      padding: 0.4rem 1rem 0.7rem 0;
-      border-bottom: 1px solid var(--border2);
-      font-weight: 400;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
     }
 
-    .topics-table td {
-      padding: 1.1rem 1rem 1.1rem 0;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-      font-size: 0.87rem;
+    .info-block-value {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
     }
 
-    .topics-table tr:last-child td { border-bottom: none; }
+    .info-block.key .info-block-value { color: var(--accent); }
 
-    .tn { font-family: 'Source Code Pro', monospace; font-size: 0.62rem; color: var(--light); width: 36px; }
-    .tt { font-family: 'EB Garamond', serif; font-size: 1rem; color: var(--text); width: 200px; white-space: nowrap; }
-    .ti { color: var(--body); line-height: 1.75; }
-    .ti span::after { content: '  ·  '; color: var(--light); }
-    .ti span:last-child::after { content: ''; }
-
-    .dates-list { display: flex; flex-direction: column; }
-
-    .date-row {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 2rem;
-      padding: 0.95rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: baseline;
+    .info-block-note {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
     }
 
-    .date-row:last-child { border-bottom: none; }
-    .dr-date { font-family: 'EB Garamond', serif; font-size: 0.98rem; color: var(--text); }
-    .dr-date.key { color: var(--accent); font-weight: 500; }
-    .dr-label { font-size: 0.85rem; color: var(--body); }
-    .dr-note { font-size: 0.73rem; color: var(--muted); margin-top: 0.1rem; }
-
-    .program-table { width: 100%; border-collapse: collapse; }
-
-    .program-table td {
-      padding: 0.85rem 1rem 0.85rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.85rem;
-      vertical-align: top;
+    /* Hero accent bar */
+    .hero-accent-bar {
+      background: var(--accent);
+      padding: 1rem 2.5rem;
     }
 
-    .program-table tr:last-child td { border-bottom: none; }
-    .pt { font-family: 'Source Code Pro', monospace; font-size: 0.7rem; color: var(--light); width: 80px; padding-top: 0.95rem; }
-    .pl { color: var(--text); font-weight: 500; font-size: 0.87rem; }
-    .pd { color: var(--muted); font-size: 0.78rem; margin-top: 0.2rem; line-height: 1.55; }
-    .pdur { font-family: 'Source Code Pro', monospace; font-size: 0.62rem; color: var(--light); text-align: right; width: 55px; padding-top: 0.9rem; }
-
-    .submit-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-
-    .submit-rules { display: flex; flex-direction: column; gap: 1.3rem; }
-
-    .rule {
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-      padding-bottom: 1.3rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .rule:last-child { border-bottom: none; padding-bottom: 0; }
-    .rn { font-family: 'Source Code Pro', monospace; font-size: 0.62rem; color: var(--light); padding-top: 0.18rem; flex-shrink: 0; }
-    .rb { font-size: 0.86rem; color: var(--body); line-height: 1.75; }
-    .rb strong { color: var(--text); font-weight: 500; }
-
-    .submit-box {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 2rem;
-    }
-
-    .submit-box h4 { font-family: 'EB Garamond', serif; font-size: 1.15rem; font-weight: 500; margin-bottom: 0.7rem; }
-    .submit-box p { font-size: 0.82rem; color: var(--muted); line-height: 1.75; margin-bottom: 0.7rem; }
-    .submit-box a.mail { color: var(--accent); text-decoration: none; font-size: 0.82rem; }
-
-    .org-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
-
-    .org-card { border-top: 2px solid var(--border); padding-top: 1.2rem; }
-    .org-card.lead { border-top-color: var(--accent); }
-    .org-role { font-family: 'Source Code Pro', monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); margin-bottom: 0.45rem; }
-    .org-name { font-family: 'EB Garamond', serif; font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem; }
-    .org-desc { font-size: 0.79rem; color: var(--muted); line-height: 1.65; }
-    .org-desc a { color: var(--accent); text-decoration: none; }
-
-    .join-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
-
-    .join-block h4 { font-family: 'EB Garamond', serif; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.7rem; border-bottom: 1px solid var(--border); padding-bottom: 0.55rem; }
-    .join-block p { font-size: 0.84rem; color: var(--body); line-height: 1.8; margin-bottom: 0.7rem; }
-    .join-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
-    .join-block ul li { font-size: 0.81rem; color: var(--muted); padding-left: 1rem; position: relative; }
-    .join-block ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 0.72rem; }
-    .contact-line { font-size: 0.82rem; color: var(--body); }
-    .contact-line a { color: var(--accent); text-decoration: none; font-weight: 500; }
-
-    footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 2.2rem 5rem;
+    .hero-accent-bar-inner {
+      max-width: 1060px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -384,402 +306,1109 @@
       gap: 1rem;
     }
 
-    .footer-left p { font-family: 'EB Garamond', serif; font-size: 0.95rem; color: var(--text); margin-bottom: 0.15rem; }
-    .footer-left span { font-size: 0.73rem; color: var(--muted); }
-    .footer-left a { color: var(--accent); text-decoration: none; }
-    .footer-links { list-style: none; display: flex; gap: 1.8rem; }
-    .footer-links a { font-size: 0.76rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--accent); }
-
-    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 960px) {
-      nav { padding: 0.9rem 1.8rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.8rem 2.5rem; }
-      .hero-sidebar { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 1.4rem; }
-      .section-inner { padding: 3rem 1.8rem; }
-      .section-header, .two-col { grid-template-columns: 1fr; gap: 1rem; }
-      .section-num { display: none; }
-      .submit-cols, .join-cols { grid-template-columns: 1fr; gap: 2rem; }
-      .org-cols { grid-template-columns: 1fr 1fr; }
-      .date-row { grid-template-columns: 130px 1fr; }
-      footer { padding: 1.8rem; flex-direction: column; align-items: flex-start; }
+    .hero-accent-bar p {
+      color: rgba(255,255,255,0.92);
+      font-size: 0.88rem;
+      font-weight: 600;
     }
 
-    @media (max-width: 580px) {
-      .org-cols { grid-template-columns: 1fr; }
-      .tt { white-space: normal; }
-      .date-row { grid-template-columns: 1fr; gap: 0.15rem; }
+    .hero-accent-bar p strong { color: #fff; }
+
+    .hero-accent-bar a {
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.6);
+      padding: 0.4rem 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .hero-accent-bar a:hover { border-color: #fff; }
+
+    /* ── LAYOUT ── */
+    .section-wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem;
+    }
+
+    .section-label {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-lead {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    hr.section-rule {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-accent-rule {
+      border: none;
+      border-top: 3px solid var(--accent);
+      width: 48px;
+      margin: 0.8rem 0 1.8rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 0.97rem;
+      color: var(--body);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+
+    .about-text p strong { color: var(--text); font-weight: 700; }
+
+    .about-pullquote {
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.4rem;
+      background: var(--accent-bg);
+      margin-top: 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .about-pullquote p {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .about-facts {
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      overflow: hidden;
+    }
+
+    .fact-row {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.2rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fact-row:last-child { border-bottom: none; }
+
+    .fact-num {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 3.8rem;
+    }
+
+    .fact-desc {
+      font-size: 0.86rem;
+      color: var(--body);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ── TOPICS ── */
+    #topics { background: var(--bg2); }
+
+    .topics-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .topics-table thead tr {
+      background: var(--accent);
+    }
+
+    .topics-table thead th {
+      padding: 0.85rem 1.2rem;
+      text-align: left;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .topics-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .topics-table tbody tr:last-child { border-bottom: none; }
+    .topics-table tbody tr:hover { background: var(--accent-bg); }
+    .topics-table td { padding: 1.1rem 1.2rem; vertical-align: top; }
+
+    .topic-track-num {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.2rem;
+      font-weight: 500;
+    }
+
+    .topic-track-name {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .topic-keywords {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    /* ── DATES ── */
+    #dates { background: var(--bg); }
+
+    .dates-list {
+      border: 1px solid var(--border);
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .date-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .date-row:last-child { border-bottom: none; }
+    .date-row.highlight { background: var(--accent-bg); }
+
+    .date-col-date {
+      padding: 1.2rem 1.4rem;
+      border-right: 1px solid var(--border);
+      background: var(--bg2);
+    }
+
+    .date-row.highlight .date-col-date {
+      background: var(--accent-bg);
+      border-right-color: var(--accent-bd);
+    }
+
+    .date-date-val {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .date-row.highlight .date-date-val { color: var(--accent); }
+    .date-date-sub { font-size: 0.73rem; color: var(--muted); margin-top: 0.15rem; font-weight: 500; }
+
+    .date-col-desc { padding: 1.2rem 1.4rem; }
+
+    .date-desc-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .date-desc-note { font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+
+    .key-badge {
+      display: inline-block;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.14rem 0.48rem;
+      margin-left: 0.45rem;
+      vertical-align: middle;
+      font-weight: 500;
+    }
+
+    /* ── SUBMIT ── */
+    #submit { background: var(--bg2); }
+
+    .submit-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .guidelines-list {
+      border: 1px solid var(--border);
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .guideline-row {
+      display: flex;
+      gap: 1.1rem;
+      padding: 1.1rem 1.3rem;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .guideline-row:last-child { border-bottom: none; }
+
+    .g-num {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.66rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      padding-top: 0.16rem;
+      width: 1.5rem;
+      font-weight: 500;
+    }
+
+    .g-text { font-size: 0.9rem; color: var(--body); line-height: 1.72; font-weight: 400; }
+    .g-text strong { color: var(--text); font-weight: 700; }
+
+    .submit-sidebar-box {
+      border: 2px solid var(--accent-bd);
+      background: var(--accent-bg);
+      padding: 1.8rem;
+    }
+
+    .submit-sidebar-box h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .submit-sidebar-box p {
+      font-size: 0.87rem;
+      color: var(--body);
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
+      font-weight: 400;
+    }
+
+    .email-link {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 0.8rem;
+    }
+
+    .email-link:hover { text-decoration: underline; }
+
+    /* ── PROGRAM ── */
+    #program { background: var(--bg); }
+
+    .program-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .program-table thead tr { background: var(--accent); }
+
+    .program-table thead th {
+      padding: 0.82rem 1.1rem;
+      text-align: left;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .program-table tbody tr { border-bottom: 1px solid var(--border); }
+    .program-table tbody tr:last-child { border-bottom: none; }
+    .program-table td { padding: 1rem 1.1rem; vertical-align: top; }
+
+    .prog-time {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .prog-segment { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .prog-detail { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.55; }
+
+    /* ── ORGANIZERS ── */
+    #organizer { background: var(--bg2); }
+
+    .org-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .org-card {
+      border: 1px solid var(--border);
+      background: var(--white);
+      padding: 1.6rem;
+    }
+
+    .org-card.main {
+      border-left: 4px solid var(--accent);
+    }
+
+    .org-card.dashed {
+      border-style: dashed;
+      border-color: var(--border2);
+      background: var(--bg2);
+    }
+
+    .org-role-label {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+      font-weight: 500;
+    }
+
+    .org-name {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .org-card.dashed .org-name { color: var(--muted); font-style: italic; font-weight: 500; }
+    .org-desc { font-size: 0.86rem; color: var(--body); line-height: 1.72; }
+
+    /* ── JOIN ── */
+    #join { background: var(--bg); }
+
+    .join-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .join-card {
+      border: 1px solid var(--border);
+      background: var(--white);
+      padding: 1.7rem;
+      border-top: 3px solid var(--accent);
+    }
+
+    .join-card-label {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+
+    .join-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.55rem;
+      line-height: 1.3;
+    }
+
+    .join-card p {
+      font-size: 0.85rem;
+      color: var(--body);
+      line-height: 1.72;
+      margin-bottom: 1.1rem;
+    }
+
+    .join-card a {
+      font-size: 0.83rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .join-card a:hover { text-decoration: underline; }
+
+    .join-contact-bar {
+      margin-top: 2rem;
+      background: var(--accent);
+      padding: 1.4rem 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .join-contact-bar p {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .join-contact-bar a {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(255,255,255,0.4);
+      padding-bottom: 1px;
+    }
+
+    .join-contact-bar a:hover { border-bottom-color: #fff; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--bg2); }
+
+    .faq-list { border: 1px solid var(--border); background: var(--white); overflow: hidden; }
+
+    .faq-item {
+      padding: 1.4rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.45rem;
+    }
+
+    .faq-a { font-size: 0.87rem; color: var(--body); line-height: 1.78; max-width: 700px; }
+    .faq-a strong { color: var(--text); font-weight: 700; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: #c8c3bc;
+      padding: 3rem 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f0ebe4;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-sub { font-size: 0.8rem; color: #7a756c; line-height: 1.7; }
+    .footer-sub a { color: #a89f95; text-decoration: none; }
+    .footer-sub a:hover { color: #f0ebe4; }
+
+    .footer-nav { display: flex; flex-direction: column; gap: 0.45rem; }
+
+    .footer-nav a {
+      font-size: 0.82rem;
+      color: #7a756c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: #f0ebe4; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 860px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero { padding: 5.5rem 1.5rem 0; }
+      .hero-top { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 2.5rem; }
+
+      .section-wrap { padding: 3rem 1.5rem; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+      .submit-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .org-grid { grid-template-columns: 1fr; }
+      .join-grid { grid-template-columns: 1fr; }
+
+      .date-row { grid-template-columns: 1fr; }
+      .date-col-date {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 0.8rem 1.2rem;
+      }
+
+      .topics-table thead { display: none; }
+      .topics-table tbody tr { display: block; border-bottom: 2px solid var(--border); padding: 1rem; }
+      .topics-table td { display: block; padding: 0.3rem 0; }
+
+      .program-table thead th:first-child { display: none; }
+      .program-table td:first-child { display: none; }
+
+      .hero-accent-bar { padding: 1rem 1.5rem; }
+      .hero-accent-bar-inner { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+
+      footer { padding: 2.5rem 1.5rem; }
+      .join-contact-bar { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.85rem; }
+      .section-title { font-size: 1.6rem; }
+      .hero-cta { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Northeast<span>GenAI</span> 2025</a>
+    <a href="#" class="nav-logo">NortheastGenAI 2025</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#topics">Topics</a></li>
       <li><a href="#dates">Dates</a></li>
-      <li><a href="#program">Program</a></li>
       <li><a href="#submit">Submit</a></li>
+      <li><a href="#program">Program</a></li>
       <li><a href="#join">Get Involved</a></li>
     </ul>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
-  <div style="border-bottom:1px solid var(--border);">
-    <div class="hero">
-      <div class="hero-left">
-        <div class="hero-kicker">Non-Archival Workshop · Virtual · May 29, 2025</div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#topics" onclick="toggleMenu()">Topics</a>
+    <a href="#dates" onclick="toggleMenu()">Dates</a>
+    <a href="#submit" onclick="toggleMenu()">Submit</a>
+    <a href="#program" onclick="toggleMenu()">Program</a>
+    <a href="#join" onclick="toggleMenu()">Get Involved</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-top">
+      <div>
+        <p class="hero-kicker">First Edition · May 29, 2025 · Virtual Workshop</p>
         <h1 class="hero-title">
-          Workshop on Generative AI<br />
-          for <em>Northeast Indian</em><br />
-          Knowledge Systems
+          Workshop on<br />
+          <em>AI-Generated Research</em><br />
+          for Northeast Indian<br />Knowledge Systems
         </h1>
-        <p class="hero-desc">
-          NortheastGenAI 2025 is an experimental, non-archival one-day workshop where AI agents serve as primary authors and reviewers of short research notes on Northeast India's languages, cultures, and ecosystems. Organised by MWire Labs, Shillong.
+        <p class="hero-sub">
+          NortheastGenAI is a non-archival virtual workshop exploring whether AI agents can meaningfully contribute to the documentation and study of Northeast India's languages, cultures, and ecosystems. All papers, prompts, and reviews are openly published.
         </p>
-        <div class="hero-badges">
-          <span class="badge ab">Non-Archival</span>
-          <span class="badge">Open Access · CC-BY-4.0</span>
-          <span class="badge">OpenReview</span>
-          <span class="badge">Free to Submit</span>
+        <div class="hero-tags">
+          <span class="tag accent-tag">Non-Archival</span>
+          <span class="tag">AI-Authored Papers</span>
+          <span class="tag">AI-Generated Reviews</span>
+          <span class="tag">Open Access</span>
+          <span class="tag">CC-BY-4.0</span>
         </div>
-        <div style="display:flex;gap:0;flex-wrap:wrap;">
-          <a href="https://openreview.net" target="_blank" class="btn-primary">Submit a Paper →</a>
-          <a href="#about" class="btn-outline">Learn More</a>
+        <div class="hero-cta">
+          <a href="https://openreview.net" target="_blank" class="btn-primary">Submit on OpenReview ↗</a>
+          <a href="#about" class="btn-secondary">Read the Call</a>
         </div>
       </div>
       <div class="hero-sidebar">
-        <div class="sidebar-item">
-          <div class="sidebar-label">Workshop Date</div>
-          <div class="sidebar-value">May 29, 2025</div>
-          <div class="sidebar-note">Virtual · Full day · IST</div>
+        <div class="info-block key">
+          <div class="info-block-label">Workshop Date</div>
+          <div class="info-block-value">May 29, 2025</div>
+          <div class="info-block-note">Virtual · Full-day program</div>
         </div>
-        <div class="sidebar-item">
-          <div class="sidebar-label">Submission Deadline</div>
-          <div class="sidebar-value">May 1, 2025</div>
-          <div class="sidebar-note">11:59 PM IST · No extensions</div>
+        <div class="info-block key">
+          <div class="info-block-label">Submission Deadline</div>
+          <div class="info-block-value">May 1, 2025</div>
+          <div class="info-block-note">11:59 PM IST — no extensions</div>
         </div>
-        <div class="sidebar-item">
-          <div class="sidebar-label">Notification</div>
-          <div class="sidebar-value">May 15, 2025</div>
-          <div class="sidebar-note">Via OpenReview</div>
+        <div class="info-block">
+          <div class="info-block-label">Platform</div>
+          <div class="info-block-value">OpenReview</div>
+          <div class="info-block-note">Free · Publicly visible</div>
         </div>
-        <div class="sidebar-item">
-          <div class="sidebar-label">Platform</div>
-          <div class="sidebar-value">OpenReview</div>
-          <div class="sidebar-note">Free account required</div>
+        <div class="info-block">
+          <div class="info-block-label">Archival Status</div>
+          <div class="info-block-value">Non-Archival</div>
+          <div class="info-block-note">Authors may resubmit elsewhere</div>
         </div>
-        <div class="sidebar-item">
-          <div class="sidebar-label">Contact</div>
-          <div class="sidebar-value" style="font-size:0.87rem;">
-            <a href="mailto:connect@mwirelabs.com" style="color:var(--accent);text-decoration:none;">connect@mwirelabs.com</a>
+        <div class="info-block">
+          <div class="info-block-label">Contact</div>
+          <div class="info-block-value" style="font-size:0.95rem;">
+            <a href="mailto:connect@mwirelabs.com" style="color:var(--accent);text-decoration:none;font-weight:700;">connect@mwirelabs.com</a>
           </div>
+          <div class="info-block-note">MWire Labs, Shillong, Meghalaya</div>
         </div>
       </div>
     </div>
-  </div>
+    <!-- Accent bar -->
+    <div class="hero-accent-bar">
+      <div class="hero-accent-bar-inner">
+        <p>Organized by <strong>MWire Labs</strong> · Shillong, Meghalaya · First workshop of its kind for Northeast India</p>
+        <a href="mailto:connect@mwirelabs.com">Get Involved ↗</a>
+      </div>
+    </div>
+  </header>
 
   <!-- ABOUT -->
-  <div class="section-wrap" id="about">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-num">§ 01 · About</div>
-        <div>
-          <h2 class="section-title">About the Workshop</h2>
-          <p class="section-subtitle">An open experiment in AI-assisted regional research</p>
+  <section id="about" style="background:var(--bg);">
+    <div class="section-wrap">
+      <p class="section-label reveal">About</p>
+      <h2 class="section-title reveal">An open experiment in<br />AI-assisted regional research</h2>
+      <hr class="section-accent-rule reveal" />
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>NortheastGenAI is the <strong>first workshop of its kind focused on Northeast India</strong> — a region home to over 200 languages, extraordinary biodiversity, and rich oral traditions that remain almost entirely absent from global AI research.</p>
+          <p>Inspired by Agents4Science 2025 (Stanford University), NortheastGenAI adapts the AI-authored workshop model for a domain where the stakes are highest: <strong>low-resource, underrepresented, and urgently underdocumented</strong> knowledge systems of the Eastern Himalayan and Indo-Burma region.</p>
+          <p>The workshop is explicitly experimental. We are not claiming AI research equals human scholarship. We are asking an open question — and publishing everything that results from asking it.</p>
+          <div class="about-pullquote">
+            <p>"All submitted papers, prompting methodologies, and AI-generated reviews are made publicly visible on OpenReview. There are no secrets here."</p>
+          </div>
         </div>
-      </div>
-      <div class="two-col reveal">
-        <div></div>
-        <div class="about-text">
-          <p>NortheastGenAI 2025 is a <strong>non-archival, one-day virtual workshop</strong> in which AI agents are the primary authors and reviewers of short research notes. Human researchers contribute through prompt design, curation, and editorial oversight. All submissions, prompts, and AI-generated reviews are published openly on OpenReview.</p>
-          <p>The workshop is inspired by Agents4Science 2025 (Stanford University) and adapts the concept for a context that global AI research has largely overlooked: the <strong>languages, cultures, and knowledge systems of Northeast India</strong> — a region home to over 200 languages, exceptional biodiversity, and living oral traditions that remain almost entirely absent from mainstream AI corpora and benchmarks.</p>
-          <div class="pullquote"><p>Can AI meaningfully contribute to documenting what makes Northeast India extraordinary? NortheastGenAI creates a transparent, openly documented sandbox to explore that question.</p></div>
-          <p>This is an experiment, not a claim. Non-archival status means authors are <strong>free to submit their work to other venues</strong> after the workshop. All proceedings are released under <strong>CC-BY-4.0</strong>.</p>
+        <div class="about-facts reveal">
+          <div class="fact-row">
+            <div class="fact-num">200+</div>
+            <div class="fact-desc">Languages spoken across Northeast India — most have no digital presence.</div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-num">4 pp</div>
+            <div class="fact-desc">Maximum submission length, excluding references.</div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-num">~16%</div>
+            <div class="fact-desc">Expected acceptance rate, comparable to selective academic workshops.</div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-num">Free</div>
+            <div class="fact-desc">No registration fee. Open access proceedings. CC-BY-4.0.</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <hr class="section-rule" />
 
   <!-- TOPICS -->
-  <div class="section-wrap" id="topics" style="background:var(--bg2);">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-num">§ 02 · Topics</div>
-        <div>
-          <h2 class="section-title">Topics of Interest</h2>
-          <p class="section-subtitle">All submissions must engage meaningfully with a Northeast India context.</p>
-        </div>
-      </div>
-      <div class="two-col reveal">
-        <div></div>
-        <table class="topics-table">
-          <thead>
-            <tr>
-              <th style="width:36px;">#</th>
-              <th style="width:200px;">Track</th>
-              <th>Areas of Interest</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="tn">01</td>
-              <td class="tt">Language &amp; Linguistics</td>
-              <td class="ti"><span>Low-resource language documentation</span><span>Morphology, syntax &amp; phonology</span><span>Machine translation &amp; ASR</span><span>Script preservation &amp; OCR</span></td>
-            </tr>
-            <tr>
-              <td class="tn">02</td>
-              <td class="tt">Culture &amp; Heritage</td>
-              <td class="ti"><span>Oral traditions &amp; folklore</span><span>Cultural practices &amp; rituals</span><span>Indigenous knowledge systems</span><span>Digital archiving</span></td>
-            </tr>
-            <tr>
-              <td class="tn">03</td>
-              <td class="tt">Ecology &amp; Environment</td>
-              <td class="ti"><span>Biodiversity documentation</span><span>Ethnobotany</span><span>Traditional ecological knowledge</span><span>Climate &amp; land use</span></td>
-            </tr>
-            <tr>
-              <td class="tn">04</td>
-              <td class="tt">Agriculture &amp; Food</td>
-              <td class="ti"><span>Traditional farming systems</span><span>Indigenous crop diversity</span><span>AI for tribal agriculture</span><span>Multilingual advisory systems</span></td>
-            </tr>
-            <tr>
-              <td class="tn">05</td>
-              <td class="tt">Health &amp; Medicine</td>
-              <td class="ti"><span>Ethnomedicine &amp; healing</span><span>Medicinal plants</span><span>Multilingual health communication</span><span>Traditional medical knowledge</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <section id="topics" style="background:var(--bg2);">
+    <div class="section-wrap">
+      <p class="section-label reveal">Tracks</p>
+      <h2 class="section-title reveal">Topics of Interest</h2>
+      <hr class="section-accent-rule reveal" />
+      <p class="section-lead reveal">We invite AI-generated research notes on any of the following tracks, provided they engage meaningfully with a Northeast India context.</p>
+      <table class="topics-table reveal">
+        <thead>
+          <tr>
+            <th style="width:210px;">Track</th>
+            <th>Keywords &amp; Subtopics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="topic-track-num">T1</span><span class="topic-track-name">Language &amp; Linguistics</span></td>
+            <td><span class="topic-keywords">Low-resource language documentation · Morphology, syntax, phonology · Machine translation &amp; ASR · Script preservation &amp; OCR · Endangered language analysis</span></td>
+          </tr>
+          <tr>
+            <td><span class="topic-track-num">T2</span><span class="topic-track-name">Culture &amp; Heritage</span></td>
+            <td><span class="topic-keywords">Oral traditions &amp; folklore · Cultural practices &amp; rituals · Indigenous knowledge representation · Digital archiving · Ethnographic AI</span></td>
+          </tr>
+          <tr>
+            <td><span class="topic-track-num">T3</span><span class="topic-track-name">Ecology &amp; Environment</span></td>
+            <td><span class="topic-keywords">Biodiversity in the Eastern Himalayas · Ethnobotany · Traditional ecological knowledge · Climate &amp; land use · Conservation AI</span></td>
+          </tr>
+          <tr>
+            <td><span class="topic-track-num">T4</span><span class="topic-track-name">Agriculture &amp; Food Systems</span></td>
+            <td><span class="topic-keywords">Traditional &amp; tribal farming · Indigenous crop diversity · AI for smallholder agriculture · Multilingual advisory systems</span></td>
+          </tr>
+          <tr>
+            <td><span class="topic-track-num">T5</span><span class="topic-track-name">Health &amp; Medicine</span></td>
+            <td><span class="topic-keywords">Ethnomedicine &amp; traditional healing · Medicinal plant documentation · Multilingual health communication · Remote community health AI</span></td>
+          </tr>
+          <tr style="background:var(--bg2);">
+            <td><span class="topic-track-num" style="color:var(--muted);">—</span><span class="topic-track-name" style="color:var(--muted);font-style:italic;font-size:0.95rem;">Interdisciplinary</span></td>
+            <td><span class="topic-keywords">Cross-track work and methodological proposals for AI-assisted regional research are especially welcome.</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
+  </section>
+
+  <hr class="section-rule" />
 
   <!-- DATES -->
-  <div class="section-wrap" id="dates">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-num">§ 03 · Dates</div>
-        <div>
-          <h2 class="section-title">Important Dates</h2>
-          <p class="section-subtitle">All deadlines at 11:59 PM IST. The workshop is fully virtual.</p>
+  <section id="dates" style="background:var(--bg);">
+    <div class="section-wrap">
+      <p class="section-label reveal">Timeline</p>
+      <h2 class="section-title reveal">Important Dates</h2>
+      <hr class="section-accent-rule reveal" />
+      <p class="section-lead reveal">All deadlines are in Indian Standard Time (IST). The workshop is fully virtual — no travel required.</p>
+      <div class="dates-list reveal">
+        <div class="date-row">
+          <div class="date-col-date">
+            <div class="date-date-val">April 2025</div>
+            <div class="date-date-sub">TBC</div>
+          </div>
+          <div class="date-col-desc">
+            <div class="date-desc-title">Call for Submissions Opens</div>
+            <div class="date-desc-note">OpenReview portal goes live.</div>
+          </div>
         </div>
-      </div>
-      <div class="two-col reveal">
-        <div></div>
-        <div class="dates-list">
-          <div class="date-row">
-            <div class="dr-date">April 2025</div>
-            <div><div class="dr-label">Submission Portal Opens</div><div class="dr-note">OpenReview venue goes live</div></div>
+        <div class="date-row highlight">
+          <div class="date-col-date">
+            <div class="date-date-val">May 1, 2025</div>
+            <div class="date-date-sub">11:59 PM IST</div>
           </div>
-          <div class="date-row">
-            <div class="dr-date key">May 1, 2025</div>
-            <div><div class="dr-label">Submission Deadline</div><div class="dr-note">4 pages max, excluding references. No extensions.</div></div>
+          <div class="date-col-desc">
+            <div class="date-desc-title">Submission Deadline <span class="key-badge">Key</span></div>
+            <div class="date-desc-note">No extensions. All papers via OpenReview by this time.</div>
           </div>
-          <div class="date-row">
-            <div class="dr-date">May 15, 2025</div>
-            <div><div class="dr-label">Acceptance Notifications</div><div class="dr-note">Decisions communicated via OpenReview</div></div>
+        </div>
+        <div class="date-row">
+          <div class="date-col-date">
+            <div class="date-date-val">May 1–8</div>
           </div>
-          <div class="date-row">
-            <div class="dr-date">May 22, 2025</div>
-            <div><div class="dr-label">Camera-Ready Deadline</div><div class="dr-note">Final version for proceedings</div></div>
+          <div class="date-col-desc">
+            <div class="date-desc-title">Review Period</div>
+            <div class="date-desc-note">AI review agents process submissions. Human editorial pass by organizers.</div>
           </div>
-          <div class="date-row">
-            <div class="dr-date key">May 29, 2025</div>
-            <div><div class="dr-label">Workshop Day</div><div class="dr-note">Virtual · Full-day program · Open to all</div></div>
+        </div>
+        <div class="date-row">
+          <div class="date-col-date">
+            <div class="date-date-val">May 15, 2025</div>
+          </div>
+          <div class="date-col-desc">
+            <div class="date-desc-title">Notification of Acceptance</div>
+            <div class="date-desc-note">Authors notified via OpenReview and email.</div>
+          </div>
+        </div>
+        <div class="date-row highlight">
+          <div class="date-col-date">
+            <div class="date-date-val">May 29, 2025</div>
+          </div>
+          <div class="date-col-desc">
+            <div class="date-desc-title">Workshop Day <span class="key-badge">Key</span></div>
+            <div class="date-desc-note">Virtual · Keynote, paper presentations, panel discussion, proceedings release.</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- PROGRAM -->
-  <div class="section-wrap" id="program" style="background:var(--bg2);">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-num">§ 04 · Program</div>
-        <div>
-          <h2 class="section-title">Program Overview</h2>
-          <p class="section-subtitle">May 29, 2025 · Virtual · All times IST. Subject to revision.</p>
-        </div>
-      </div>
-      <div class="two-col reveal">
-        <div></div>
-        <table class="program-table">
-          <tbody>
-            <tr>
-              <td class="pt">09:00</td>
-              <td><div class="pl">Opening Remarks</div><div class="pd">Welcome by MWire Labs. Introduction to NortheastGenAI and workshop format.</div></td>
-              <td class="pdur">15 min</td>
-            </tr>
-            <tr>
-              <td class="pt">09:15</td>
-              <td><div class="pl">Keynote Address</div><div class="pd">Invited keynote on AI as a research tool for indigenous or low-resource knowledge systems. Speaker TBC.</div></td>
-              <td class="pdur">25 min</td>
-            </tr>
-            <tr>
-              <td class="pt">09:45</td>
-              <td><div class="pl">Paper Presentations</div><div class="pd">3–4 accepted papers presented by submitters. 10 minutes each including questions.</div></td>
-              <td class="pdur">40 min</td>
-            </tr>
-            <tr>
-              <td class="pt">10:30</td>
-              <td><div class="pl">Break</div></td>
-              <td class="pdur">10 min</td>
-            </tr>
-            <tr>
-              <td class="pt">10:40</td>
-              <td><div class="pl">Panel Discussion</div><div class="pd">"Can AI do justice to Northeast India's knowledge systems?" — Three panelists, moderated by MWire Labs. Panelists TBC.</div></td>
-              <td class="pdur">35 min</td>
-            </tr>
-            <tr>
-              <td class="pt">11:15</td>
-              <td><div class="pl">Open Discussion</div><div class="pd">Audience Q&amp;A and open conversation on AI in regional and indigenous research.</div></td>
-              <td class="pdur">25 min</td>
-            </tr>
-            <tr>
-              <td class="pt">11:45</td>
-              <td><div class="pl">Closing &amp; Proceedings</div><div class="pd">Proceedings announcement, acknowledgements, and a note on NortheastGenAI 2026.</div></td>
-              <td class="pdur">15 min</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+  <hr class="section-rule" />
 
   <!-- SUBMIT -->
-  <div class="section-wrap" id="submit">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-num">§ 05 · Submit</div>
+  <section id="submit" style="background:var(--bg2);">
+    <div class="section-wrap">
+      <p class="section-label reveal">Submissions</p>
+      <h2 class="section-title reveal">Submission Guidelines</h2>
+      <hr class="section-accent-rule reveal" />
+      <div class="submit-grid">
         <div>
-          <h2 class="section-title">Submission Guidelines</h2>
-          <p class="section-subtitle">Submissions handled through OpenReview. Free account required.</p>
+          <p class="section-lead reveal" style="margin-bottom:1rem;">Please read carefully before submitting.</p>
+          <div class="guidelines-list reveal">
+            <div class="guideline-row">
+              <span class="g-num">G1</span>
+              <span class="g-text"><strong>AI must be the primary author.</strong> Papers must be substantially generated by an AI tool — Claude, GPT-4, Gemini, or equivalent. Human contributions are limited to prompting, structuring, and light formatting.</span>
+            </div>
+            <div class="guideline-row">
+              <span class="g-num">G2</span>
+              <span class="g-text"><strong>Disclosure is mandatory.</strong> Every submission must include a short paragraph naming the AI model used and describing the prompting methodology. Submissions without disclosure will be desk-rejected.</span>
+            </div>
+            <div class="guideline-row">
+              <span class="g-num">G3</span>
+              <span class="g-text"><strong>Maximum 4 pages,</strong> excluding references. Any standard academic format is acceptable (ACL, LREC, or similar).</span>
+            </div>
+            <div class="guideline-row">
+              <span class="g-num">G4</span>
+              <span class="g-text"><strong>Northeast India focus required.</strong> All submissions must engage meaningfully with one of the five workshop tracks.</span>
+            </div>
+            <div class="guideline-row">
+              <span class="g-num">G5</span>
+              <span class="g-text"><strong>Non-archival.</strong> Accepted papers may be submitted to other venues without restriction. All papers and AI-generated reviews are publicly visible on OpenReview.</span>
+            </div>
+            <div class="guideline-row">
+              <span class="g-num">G6</span>
+              <span class="g-text"><strong>No fee.</strong> Submission, review, and attendance are completely free of charge.</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="two-col reveal">
-        <div></div>
-        <div class="submit-cols">
-          <div class="submit-rules">
-            <div class="rule"><span class="rn">R.1</span><div class="rb"><strong>AI as primary author.</strong> Papers must be substantially generated by an AI tool — Claude, GPT-4, Gemini, or equivalent. Humans contribute through prompting and light formatting only.</div></div>
-            <div class="rule"><span class="rn">R.2</span><div class="rb"><strong>Mandatory disclosure.</strong> Every submission must include a disclosure paragraph stating which AI model was used and describing the prompting approach.</div></div>
-            <div class="rule"><span class="rn">R.3</span><div class="rb"><strong>Length.</strong> Maximum 4 pages, excluding references. Shorter is acceptable.</div></div>
-            <div class="rule"><span class="rn">R.4</span><div class="rb"><strong>Northeast India context required.</strong> All papers must engage substantively with one of the five topic tracks.</div></div>
-            <div class="rule"><span class="rn">R.5</span><div class="rb"><strong>Non-archival.</strong> Accepted papers may be submitted elsewhere. All submissions and reviews are publicly visible.</div></div>
-          </div>
-          <div class="submit-box">
-            <h4>Submit via OpenReview</h4>
-            <p>The submission portal opens in April 2025. All submissions, AI-generated reviews, and editorial decisions will be publicly accessible.</p>
-            <a href="https://openreview.net" target="_blank" class="btn-primary">Go to OpenReview →</a>
-            <p style="margin-top:1.2rem;">Submission queries:<br /><a href="mailto:connect@mwirelabs.com" class="mail">connect@mwirelabs.com</a></p>
-          </div>
+        <div class="submit-sidebar-box reveal">
+          <h3>Submit your paper</h3>
+          <p>Submissions are handled through OpenReview. You will need a free OpenReview account. The portal opens in April 2025.</p>
+          <a href="https://openreview.net" target="_blank" class="btn-primary" style="display:inline-flex;">Go to OpenReview ↗</a>
+          <p style="margin-top:1.2rem;">For submission queries write to:</p>
+          <a href="mailto:connect@mwirelabs.com" class="email-link">connect@mwirelabs.com</a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ORGANISERS -->
-  <div class="section-wrap" id="organizer" style="background:var(--bg2);">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-num">§ 06 · Organisers</div>
-        <div>
-          <h2 class="section-title">Organising Committee</h2>
-          <p class="section-subtitle">Co-organiser positions are open to NE India academics from any discipline.</p>
+  <hr class="section-rule" />
+
+  <!-- PROGRAM -->
+  <section id="program" style="background:var(--bg);">
+    <div class="section-wrap">
+      <p class="section-label reveal">Program</p>
+      <h2 class="section-title reveal">Workshop Program — May 29, 2025</h2>
+      <hr class="section-accent-rule reveal" />
+      <p class="section-lead reveal">Indicative schedule. All times in IST. Full program announced after acceptances.</p>
+      <table class="program-table reveal">
+        <thead>
+          <tr>
+            <th style="width:130px;">Time (IST)</th>
+            <th style="width:180px;">Segment</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="prog-time">09:00–09:15</td>
+            <td><div class="prog-segment">Opening Remarks</div></td>
+            <td><div class="prog-detail">Welcome by MWire Labs. Introduction to NortheastGenAI and the day's program.</div></td>
+          </tr>
+          <tr>
+            <td class="prog-time">09:15–09:40</td>
+            <td><div class="prog-segment">Keynote Address</div></td>
+            <td><div class="prog-detail">Invited talk on AI as a research tool for indigenous and low-resource knowledge systems. Speaker TBC.</div></td>
+          </tr>
+          <tr>
+            <td class="prog-time">09:40–10:30</td>
+            <td><div class="prog-segment">Paper Presentations</div></td>
+            <td><div class="prog-detail">3–4 accepted papers. 10 minutes per paper including Q&amp;A.</div></td>
+          </tr>
+          <tr style="background:var(--bg2);">
+            <td class="prog-time">10:30–10:40</td>
+            <td><div class="prog-segment" style="color:var(--muted);font-weight:500;">Break</div></td>
+            <td><div class="prog-detail">—</div></td>
+          </tr>
+          <tr>
+            <td class="prog-time">10:40–11:15</td>
+            <td><div class="prog-segment">Panel Discussion</div></td>
+            <td><div class="prog-detail">"Can AI do justice to Northeast India's knowledge systems?" Three panelists, moderated. TBC.</div></td>
+          </tr>
+          <tr>
+            <td class="prog-time">11:15–11:45</td>
+            <td><div class="prog-segment">Open Discussion</div></td>
+            <td><div class="prog-detail">Audience Q&amp;A on the role of AI in regional and indigenous research.</div></td>
+          </tr>
+          <tr>
+            <td class="prog-time">11:45–12:00</td>
+            <td><div class="prog-segment">Closing &amp; Proceedings</div></td>
+            <td><div class="prog-detail">Proceedings PDF released. Closing remarks and NortheastGenAI 2026 announcement.</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="section-rule" />
+
+  <!-- ORGANIZERS -->
+  <section id="organizer" style="background:var(--bg2);">
+    <div class="section-wrap">
+      <p class="section-label reveal">Organizers</p>
+      <h2 class="section-title reveal">Organizing Team</h2>
+      <hr class="section-accent-rule reveal" />
+      <div class="org-grid" style="margin-top:1.5rem;">
+        <div class="org-card main reveal">
+          <div class="org-role-label">Lead Organizer</div>
+          <div class="org-name">MWire Labs</div>
+          <p class="org-desc">An AI research lab building foundational language models, ASR, OCR, and deployment infrastructure for Northeast India's indigenous languages. Based in Shillong, Meghalaya.<br /><br /><a href="https://mwirelabs.com" target="_blank" style="color:var(--accent);font-size:0.82rem;text-decoration:none;font-weight:700;">mwirelabs.com ↗</a></p>
         </div>
-      </div>
-      <div class="two-col reveal">
-        <div></div>
-        <div class="org-cols">
-          <div class="org-card lead">
-            <div class="org-role">Lead Organiser</div>
-            <div class="org-name">MWire Labs</div>
-            <p class="org-desc">AI research lab building foundational language models, ASR, OCR, and deployment infrastructure for Northeast India's indigenous languages. Based in Shillong, Meghalaya.<br /><br /><a href="https://mwirelabs.com" target="_blank">mwirelabs.com →</a></p>
-          </div>
-          <div class="org-card">
-            <div class="org-role">Co-Organiser · Open Position</div>
-            <div class="org-name">NE India Institution</div>
-            <p class="org-desc">Inviting 2–3 co-organisers from Tezpur University, NEHU, Mizoram University, Assam University, or similar. Linguistics, anthropology, ecology, or area studies welcome.<br /><br /><a href="mailto:connect@mwirelabs.com">Express interest →</a></p>
-          </div>
-          <div class="org-card">
-            <div class="org-role">Keynote &amp; Panelists · TBC</div>
-            <div class="org-name">Invitations in Progress</div>
-            <p class="org-desc">One keynote speaker and three panelists are being confirmed. Interested in speaking or nominating someone?<br /><br /><a href="mailto:connect@mwirelabs.com">Get in touch →</a></p>
-          </div>
+        <div class="org-card dashed reveal">
+          <div class="org-role-label">Co-Organizers</div>
+          <div class="org-name">Positions open</div>
+          <p class="org-desc">We invite 2–3 co-organizers from NE Indian academic institutions in linguistics, ecology, anthropology, or area studies. Minimal commitment — your name, one panel appearance, and sharing the call. Write to <a href="mailto:connect@mwirelabs.com" style="color:var(--accent);font-weight:700;">connect@mwirelabs.com</a></p>
+        </div>
+        <div class="org-card dashed reveal">
+          <div class="org-role-label">Keynote Speaker</div>
+          <div class="org-name">Invitation in progress</div>
+          <p class="org-desc">Seeking a keynote with expertise in AI for low-resource or indigenous languages. 20-minute online talk. <a href="mailto:connect@mwirelabs.com" style="color:var(--accent);font-weight:700;">Get in touch.</a></p>
+        </div>
+        <div class="org-card dashed reveal">
+          <div class="org-role-label">Panelists</div>
+          <div class="org-name">Invitations in progress</div>
+          <p class="org-desc">Seeking three panelists from NLP/AI, social sciences, and ecology or agriculture. Open to researchers, practitioners, and community representatives.</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- GET INVOLVED -->
-  <div class="section-wrap" id="join">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-num">§ 07 · Get Involved</div>
-        <div>
-          <h2 class="section-title">Partner or Sponsor</h2>
-          <p class="section-subtitle">NortheastGenAI 2025 welcomes institutional partners, sponsors, and collaborators.</p>
+  <hr class="section-rule" />
+
+  <!-- JOIN -->
+  <section id="join" style="background:var(--bg);">
+    <div class="section-wrap">
+      <p class="section-label reveal">Get Involved</p>
+      <h2 class="section-title reveal">Sponsor, Partner, or Collaborate</h2>
+      <hr class="section-accent-rule reveal" />
+      <p class="section-lead reveal">NortheastGenAI is an open initiative. We welcome institutions, universities, and organizations who share our interest in AI for Northeast India.</p>
+      <div class="join-grid">
+        <div class="join-card reveal">
+          <span class="join-card-label">Academic</span>
+          <h3>Academic Co-organizer</h3>
+          <p>Faculty members from NE Indian universities are invited to join as co-organizers. Your institution's name appears on the website and proceedings. Minimal time commitment.</p>
+          <a href="mailto:connect@mwirelabs.com">Express interest →</a>
+        </div>
+        <div class="join-card reveal">
+          <span class="join-card-label">Institutional</span>
+          <h3>Institutional Partner</h3>
+          <p>Research institutes, government bodies, and NGOs working in language documentation, biodiversity, or cultural heritage in NE India are welcome to partner as supporting organizations.</p>
+          <a href="mailto:connect@mwirelabs.com">Get in touch →</a>
+        </div>
+        <div class="join-card reveal">
+          <span class="join-card-label">Sponsor</span>
+          <h3>Sponsor</h3>
+          <p>Organizations wishing to support the workshop — compute credits, outreach support, or future edition backing — are welcome to reach out. All support is acknowledged in the proceedings.</p>
+          <a href="mailto:connect@mwirelabs.com">Discuss sponsorship →</a>
         </div>
       </div>
-      <div class="two-col reveal">
-        <div></div>
-        <div class="join-cols">
-          <div class="join-block">
-            <h4>Institutional Partnership</h4>
-            <p>Universities, research institutes, and science bodies are invited to partner with NortheastGenAI 2025. Partners receive co-organiser credit, visibility in proceedings, and standing participation in future editions.</p>
-            <ul>
-              <li>Co-organiser credit on website and proceedings</li>
-              <li>Invitation to field a speaker or panelist</li>
-              <li>Joint social media visibility</li>
-              <li>Priority participation in NortheastGenAI 2026</li>
-            </ul>
-            <p class="contact-line">Write to us: <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a></p>
-          </div>
-          <div class="join-block">
-            <h4>Sponsorship</h4>
-            <p>Sponsors support open publication of proceedings and the long-term growth of NortheastGenAI as an annual research forum. An early opportunity to associate with a growing regional AI initiative.</p>
-            <ul>
-              <li>Logo on website and proceedings</li>
-              <li>Acknowledgement in opening remarks</li>
-              <li>Option to address attendees (2–3 minutes)</li>
-              <li>Named sponsor in all public communications</li>
-            </ul>
-            <p class="contact-line">Sponsorship enquiries: <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a></p>
-          </div>
+      <div class="join-contact-bar reveal">
+        <p>All enquiries — academic, institutional, or sponsorship — go to a single address:</p>
+        <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule" />
+
+  <!-- FAQ -->
+  <section id="faq" style="background:var(--bg2);">
+    <div class="section-wrap">
+      <p class="section-label reveal">FAQ</p>
+      <h2 class="section-title reveal">Frequently Asked Questions</h2>
+      <hr class="section-accent-rule reveal" />
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <div class="faq-q">Do I need to be an academic to submit?</div>
+          <div class="faq-a">No. Anyone may submit — students, independent contributors, practitioners, and researchers. The requirement is engagement with Northeast India topics and transparent AI authorship.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What does "non-archival" mean in practice?</div>
+          <div class="faq-a"><strong>Authors are free to submit the same work to other conferences or journals.</strong> We publish an open-access proceedings PDF under CC-BY-4.0, but this does not constitute formal archival publication.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How are papers reviewed?</div>
+          <div class="faq-a">Each submission is reviewed by an AI review agent on four dimensions: relevance to NE India, factual plausibility, novelty, and clarity. MWire Labs organizers then perform a human editorial pass. All AI-generated reviews are published openly on OpenReview.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is there a registration or submission fee?</div>
+          <div class="faq-a">No. NortheastGenAI 2025 is completely free — to submit, to attend, and to read.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I submit from outside Northeast India?</div>
+          <div class="faq-a">Yes, provided your paper engages meaningfully with one of the five tracks and maintains a clear NE India focus. The requirement is on the subject matter, not the author's location.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Why is this workshop non-archival?</div>
+          <div class="faq-a">Because it is explicitly experimental. The non-archival format lets us explore the question openly and publish transparently — without making claims about AI research quality that we cannot yet support.</div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-left">
-      <p>NortheastGenAI 2025</p>
-      <span>Organised by MWire Labs · Shillong, Meghalaya · <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a></span>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">NortheastGenAI 2025</div>
+        <div class="footer-sub">
+          Organized by <a href="https://mwirelabs.com" target="_blank">MWire Labs (OPC) Pvt. Ltd.</a><br />
+          Shillong, Meghalaya, India<br />
+          <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a>
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#topics">Topics</a>
+        <a href="#dates">Important Dates</a>
+        <a href="#submit">Submission Guidelines</a>
+        <a href="#program">Program</a>
+        <a href="#join">Get Involved</a>
+        <a href="https://mwirelabs.com" target="_blank">MWire Labs ↗</a>
+      </nav>
     </div>
-    <ul class="footer-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#topics">Topics</a></li>
-      <li><a href="#dates">Dates</a></li>
-      <li><a href="#submit">Submit</a></li>
-      <li><a href="#join">Partner</a></li>
-      <li><a href="https://mwirelabs.com" target="_blank">MWire Labs →</a></li>
-    </ul>
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
     const reveals = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver((entries) => {
+    const io = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-          obs.unobserve(e.target);
+          setTimeout(() => e.target.classList.add('visible'), i * 50);
+          io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.08 });
-    reveals.forEach(el => obs.observe(el));
+    }, { threshold: 0.07 });
+    reveals.forEach(el => io.observe(el));
   </script>
 
 </body>
