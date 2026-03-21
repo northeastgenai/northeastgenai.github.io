@@ -581,9 +581,6 @@ hr.divider {
 
 .submit-box .email:hover { text-decoration: underline; }
 
-/* ===== PROGRAM ===== */
-/* reuses .data-table */
-
 /* ===== ORGANIZERS ===== */
 .org-grid {
   display: grid;
@@ -728,6 +725,35 @@ hr.divider {
 .faq-a { font-size: 0.87rem; color: #3a3730; line-height: 1.78; max-width: 700px; }
 .faq-a strong { font-weight: 700; color: #1a1714; }
 
+/* ===== PROCEEDINGS BANNER ===== */
+.proceedings-banner {
+  border: 1px solid #dedad4;
+  background: #ffffff;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.proceedings-banner img {
+  height: 44px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.proceedings-banner-text p {
+  font-size: 0.88rem;
+  color: #3a3730;
+  line-height: 1.7;
+}
+
+.proceedings-banner-text strong { color: #1a1714; font-weight: 700; }
+
+.proceedings-banner-text a { color: #8b2e12; font-weight: 700; text-decoration: none; }
+.proceedings-banner-text a:hover { text-decoration: underline; }
+
 /* ===== FOOTER ===== */
 footer {
   background: #1a1714;
@@ -755,6 +781,24 @@ footer {
 .footer-sub a { color: #a89f95; text-decoration: none; }
 .footer-sub a:hover { color: #f0ebe4; }
 
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-logos img {
+  height: 32px;
+  width: auto;
+  opacity: 0.75;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.2s;
+}
+
+.footer-logos img:hover { opacity: 1; }
+
 .footer-nav { display: flex; flex-direction: column; gap: 7px; }
 .footer-nav a { font-size: 0.82rem; color: #7a756c; text-decoration: none; font-weight: 500; }
 .footer-nav a:hover { color: #f0ebe4; }
@@ -781,6 +825,7 @@ footer {
   .accent-bar-inner { flex-direction: column; align-items: flex-start; }
   footer { padding: 40px 20px; }
   .contact-bar { flex-direction: column; align-items: flex-start; }
+  .proceedings-banner { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 
 @media (max-width: 560px) {
@@ -823,7 +868,7 @@ footer {
     <div>
       <p class="hero-kicker">First Edition &middot; May 29, 2026 &middot; Virtual</p>
       <h1 class="hero-title">Can AI research<br /><em>Northeast India?</em></h1>
-      <p class="hero-desc">NortheastGenAI is the first workshop where AI agents write and review research on Northeast India's languages, cultures, and ecosystems - openly, transparently, and without pretense. Non-archival. Free. All papers and reviews published on OpenReview.</p>
+      <p class="hero-desc">NortheastGenAI is the first workshop where AI agents write and review research on Northeast India's languages, cultures, and ecosystems — openly, transparently, and without pretense. Non-archival. Free. All papers and reviews published on OpenReview.</p>
       <div class="hero-tags">
         <span class="tag tag-accent">Non-Archival</span>
         <span class="tag">AI-Authored Papers</span>
@@ -832,7 +877,7 @@ footer {
         <span class="tag">CC-BY-4.0</span>
       </div>
       <div class="hero-btns">
-        <a href="https://openreview.net" target="_blank" class="btn-red">Submit on OpenReview ↗</a>
+        <a href="https://openreview.net/group?id=NortheastGenAI/2026/Workshop" target="_blank" class="btn-red">Submit on OpenReview ↗</a>
         <a href="#about" class="btn-outline">Read the Call</a>
       </div>
     </div>
@@ -844,13 +889,13 @@ footer {
       </div>
       <div class="info-card red">
         <div class="info-card-label">Submission Deadline</div>
-        <div class="info-card-value">May 1, 2026</div>
+        <div class="info-card-value">May 15, 2026</div>
         <div class="info-card-note">11:59 PM IST &mdash; no extensions</div>
       </div>
       <div class="info-card">
-        <div class="info-card-label">Platform</div>
-        <div class="info-card-value">OpenReview</div>
-        <div class="info-card-note">Free &middot; Publicly visible</div>
+        <div class="info-card-label">Submissions Open</div>
+        <div class="info-card-value">April 8, 2026</div>
+        <div class="info-card-note">Via OpenReview &middot; Free &middot; Publicly visible</div>
       </div>
       <div class="info-card">
         <div class="info-card-label">Contact</div>
@@ -878,7 +923,7 @@ footer {
     <div class="about-grid">
       <div class="about-text reveal">
         <p>NortheastGenAI is the <strong>first workshop of its kind focused on Northeast India</strong> — a region home to over 200 languages, extraordinary biodiversity, and rich oral traditions that remain almost entirely absent from global AI research.</p>
-        <p>Inspired by <a href="https://agents4science.stanford.edu/">Agents4Science 2025 (Stanford University)</a>, NortheastGenAI adapts the AI-authored workshop model for a domain where the stakes are highest: <strong>low-resource, underrepresented, and urgently underdocumented</strong> knowledge systems of the Eastern Himalayan and Indo-Burma region.</p>
+        <p>Inspired by <a href="https://agents4science.stanford.edu/" style="color:#8b2e12;font-weight:700;">Agents4Science 2025 (Stanford University)</a>, NortheastGenAI adapts the AI-authored workshop model for a domain where the stakes are highest: <strong>low-resource, underrepresented, and urgently underdocumented</strong> knowledge systems of the Eastern Himalayan and Indo-Burma region.</p>
         <p>The workshop is explicitly experimental. We are not claiming AI research equals human scholarship. We are asking an open question — and publishing everything that results.</p>
         <div class="pullquote">
           <p>"All submitted papers, prompting methodologies, and AI-generated reviews are publicly visible on OpenReview. There are no secrets here."</p>
@@ -962,20 +1007,20 @@ footer {
     <hr class="section-rule reveal" />
     <p class="section-lead reveal">All deadlines in IST. Fully virtual — no travel required.</p>
     <div class="dates-box reveal">
-      <div class="date-row">
-        <div class="date-left"><div class="date-val">April 2026</div><div class="date-sub">TBC</div></div>
-        <div class="date-right"><div class="date-title">Call for Submissions Opens</div><div class="date-note">OpenReview portal goes live.</div></div>
+      <div class="date-row key-date">
+        <div class="date-left"><div class="date-val">April 8, 2026</div></div>
+        <div class="date-right"><div class="date-title">Submissions Open <span class="key-badge">Key</span></div><div class="date-note">OpenReview portal goes live.</div></div>
       </div>
       <div class="date-row key-date">
-        <div class="date-left"><div class="date-val">May 1, 2026</div><div class="date-sub">11:59 PM IST</div></div>
+        <div class="date-left"><div class="date-val">May 15, 2026</div><div class="date-sub">11:59 PM IST</div></div>
         <div class="date-right"><div class="date-title">Submission Deadline <span class="key-badge">Key</span></div><div class="date-note">No extensions. All papers via OpenReview.</div></div>
       </div>
       <div class="date-row">
-        <div class="date-left"><div class="date-val">May 1–8</div></div>
+        <div class="date-left"><div class="date-val">May 15–22</div></div>
         <div class="date-right"><div class="date-title">Review Period</div><div class="date-note">AI review agents + human editorial pass.</div></div>
       </div>
       <div class="date-row">
-        <div class="date-left"><div class="date-val">May 15, 2026</div></div>
+        <div class="date-left"><div class="date-val">May 22, 2026</div></div>
         <div class="date-right"><div class="date-title">Acceptance Notifications</div><div class="date-note">Via OpenReview and email.</div></div>
       </div>
       <div class="date-row key-date">
@@ -1000,15 +1045,23 @@ footer {
         <div class="guideline-row"><span class="g-num">G2</span><span class="g-text"><strong>Disclosure is mandatory.</strong> Include a paragraph naming the AI model and describing the prompting method. No disclosure = desk rejection.</span></div>
         <div class="guideline-row"><span class="g-num">G3</span><span class="g-text"><strong>Maximum 4 pages,</strong> excluding references. Any standard academic format (ACL, LREC, or similar) is acceptable.</span></div>
         <div class="guideline-row"><span class="g-num">G4</span><span class="g-text"><strong>Northeast India focus required.</strong> All submissions must engage with one of the five tracks.</span></div>
-        <div class="guideline-row"><span class="g-num">G5</span><span class="g-text"><strong>Non-archival.</strong> Accepted papers may be submitted elsewhere. All papers and reviews publicly visible on OpenReview.</span></div>
+        <div class="guideline-row"><span class="g-num">G5</span><span class="g-text"><strong>Non-archival.</strong> Accepted papers may be submitted elsewhere. All papers and reviews publicly visible on OpenReview. Proceedings published via Northeast Langchive under CC-BY-4.0.</span></div>
         <div class="guideline-row"><span class="g-num">G6</span><span class="g-text"><strong>Completely free.</strong> No submission, review, or attendance fees.</span></div>
       </div>
       <div class="submit-box reveal">
         <h3>Submit your paper</h3>
-        <p>Submissions via OpenReview. Free account required. Portal opens April 2026.</p>
-        <a href="https://openreview.net" target="_blank" class="btn-red" style="display:inline-block;">Go to OpenReview ↗</a>
+        <p>Submissions open <strong>April 8, 2026</strong> via OpenReview. Free account required.</p>
+        <a href="https://openreview.net/group?id=NortheastGenAI/2026/Workshop" target="_blank" class="btn-red" style="display:inline-block;">Go to OpenReview ↗</a>
         <p style="margin-top:16px;">Questions? Write to us:</p>
         <a href="mailto:connect@mwirelabs.com" class="email">connect@mwirelabs.com</a>
+      </div>
+    </div>
+
+    <!-- Proceedings banner -->
+    <div class="proceedings-banner reveal">
+      <img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" />
+      <div class="proceedings-banner-text">
+        <p><strong>Proceedings published by Northeast Langchive</strong> — an academic book series dedicated to advances in Northeast Indian languages and technologies. All accepted papers will appear in the NortheastGenAI 2026 proceedings under CC-BY-4.0. <a href="https://northeastlangchive.org" target="_blank">northeastlangchive.org ↗</a></p>
       </div>
     </div>
   </div>
@@ -1032,13 +1085,13 @@ footer {
         </tr>
       </thead>
       <tbody>
-        <tr><td class="prog-time" style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#8b2e12;">09:00–09:15</td><td style="font-weight:700;font-size:0.9rem;">Opening Remarks</td><td style="font-size:0.85rem;color:#6b6560;">Welcome by MWire Labs. Intro to NortheastGenAI.</td></tr>
+        <tr><td style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#8b2e12;">09:00–09:15</td><td style="font-weight:700;font-size:0.9rem;">Opening Remarks</td><td style="font-size:0.85rem;color:#6b6560;">Welcome by MWire Labs. Intro to NortheastGenAI.</td></tr>
         <tr><td style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#8b2e12;">09:15–09:40</td><td style="font-weight:700;font-size:0.9rem;">Keynote Address</td><td style="font-size:0.85rem;color:#6b6560;">AI as a research tool for indigenous and low-resource knowledge. Speaker TBC.</td></tr>
         <tr><td style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#8b2e12;">09:40–10:30</td><td style="font-weight:700;font-size:0.9rem;">Paper Presentations</td><td style="font-size:0.85rem;color:#6b6560;">3–4 accepted papers. 10 minutes each including Q&amp;A.</td></tr>
         <tr style="background:#f7f5f2;"><td style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#7a756c;">10:30–10:40</td><td style="font-weight:600;font-size:0.9rem;color:#7a756c;">Break</td><td style="font-size:0.85rem;color:#7a756c;">—</td></tr>
         <tr><td style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#8b2e12;">10:40–11:15</td><td style="font-weight:700;font-size:0.9rem;">Panel Discussion</td><td style="font-size:0.85rem;color:#6b6560;">"Can AI do justice to NE India's knowledge systems?" Three panelists. TBC.</td></tr>
         <tr><td style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#8b2e12;">11:15–11:45</td><td style="font-weight:700;font-size:0.9rem;">Open Discussion</td><td style="font-size:0.85rem;color:#6b6560;">Audience Q&amp;A on AI in regional and indigenous research.</td></tr>
-        <tr><td style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#8b2e12;">11:45–12:00</td><td style="font-weight:700;font-size:0.9rem;">Closing &amp; Proceedings</td><td style="font-size:0.85rem;color:#6b6560;">Proceedings PDF released. NortheastGenAI 2026 announcement.</td></tr>
+        <tr><td style="font-family:'Source Code Pro',monospace;font-size:0.75rem;color:#8b2e12;">11:45–12:00</td><td style="font-weight:700;font-size:0.9rem;">Closing &amp; Proceedings</td><td style="font-size:0.85rem;color:#6b6560;">Proceedings PDF released via Northeast Langchive. NortheastGenAI 2027 announcement.</td></tr>
       </tbody>
     </table>
   </div>
@@ -1058,6 +1111,11 @@ footer {
         <div class="org-name">MWire Labs</div>
         <p class="org-desc">AI research lab building foundational language models, ASR, OCR, and deployment infrastructure for Northeast India's indigenous languages. Based in Shillong, Meghalaya.<br /><br /><a href="https://mwirelabs.com" target="_blank">mwirelabs.com ↗</a></p>
       </div>
+      <div class="org-card main reveal">
+        <div class="org-role">Proceedings Publisher</div>
+        <div class="org-name">Northeast Langchive</div>
+        <p class="org-desc">Academic book series dedicated to advances in Northeast Indian languages and technologies. NortheastGenAI 2026 proceedings will be published under CC-BY-4.0 with ISBN.<br /><br /><img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" style="height:36px;margin-top:8px;" /><br /><a href="https://northeastlangchive.org" target="_blank">northeastlangchive.org ↗</a></p>
+      </div>
       <div class="org-card open reveal">
         <div class="org-role">Co-Organizers</div>
         <div class="org-name">Positions open</div>
@@ -1067,11 +1125,6 @@ footer {
         <div class="org-role">Keynote Speaker</div>
         <div class="org-name">Invitation in progress</div>
         <p class="org-desc">Seeking expertise in AI for low-resource or indigenous languages. 20-min online talk. <a href="mailto:connect@mwirelabs.com">Get in touch.</a></p>
-      </div>
-      <div class="org-card open reveal">
-        <div class="org-role">Panelists</div>
-        <div class="org-name">Invitations in progress</div>
-        <p class="org-desc">Seeking three panelists from NLP/AI, social sciences, and ecology. Open to researchers and practitioners.</p>
       </div>
     </div>
   </div>
@@ -1123,10 +1176,11 @@ footer {
     <hr class="section-rule reveal" />
     <div class="faq-box reveal">
       <div class="faq-item"><div class="faq-q">Do I need to be an academic to submit?</div><div class="faq-a">No. Anyone may submit — students, independent contributors, practitioners, researchers. The requirement is NE India topic engagement and transparent AI authorship.</div></div>
-      <div class="faq-item"><div class="faq-q">What does "non-archival" mean?</div><div class="faq-a"><strong>Authors are free to submit the same work elsewhere.</strong> We publish an open-access PDF under CC-BY-4.0 — not a formal archival publication.</div></div>
+      <div class="faq-item"><div class="faq-q">What does "non-archival" mean?</div><div class="faq-a"><strong>Authors are free to submit the same work elsewhere.</strong> We publish an open-access proceedings volume via Northeast Langchive under CC-BY-4.0 — not a formal archival publication.</div></div>
       <div class="faq-item"><div class="faq-q">How are papers reviewed?</div><div class="faq-a">Each paper is reviewed by an AI review agent on four dimensions: NE India relevance, factual plausibility, novelty, and clarity. Organizers then do a human editorial pass. All AI reviews published openly on OpenReview.</div></div>
       <div class="faq-item"><div class="faq-q">Is there a fee?</div><div class="faq-a">No. NortheastGenAI 2026 is completely free to submit, attend, and read.</div></div>
       <div class="faq-item"><div class="faq-q">Can I submit from outside Northeast India?</div><div class="faq-a">Yes. The requirement is on the subject matter — your paper must engage with one of the five tracks and maintain a clear NE India focus.</div></div>
+      <div class="faq-item"><div class="faq-q">Where will proceedings be published?</div><div class="faq-a">Accepted papers will be published in the NortheastGenAI 2026 proceedings volume by <strong>Northeast Langchive</strong> — an academic series with ISBN, under CC-BY-4.0. All papers remain freely accessible.</div></div>
       <div class="faq-item"><div class="faq-q">Why non-archival?</div><div class="faq-a">Because this is explicitly experimental. Non-archival lets us explore and publish transparently without making claims about AI research quality we cannot yet support.</div></div>
     </div>
   </div>
@@ -1142,6 +1196,9 @@ footer {
         Shillong, Meghalaya, India<br />
         <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a>
       </div>
+      <div class="footer-logos">
+        <img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" title="Northeast Langchive — Proceedings Publisher" />
+      </div>
     </div>
     <nav class="footer-nav">
       <a href="#about">About</a>
@@ -1151,6 +1208,7 @@ footer {
       <a href="#program">Program</a>
       <a href="#join">Get Involved</a>
       <a href="https://mwirelabs.com" target="_blank">MWire Labs ↗</a>
+      <a href="https://northeastlangchive.org" target="_blank">Northeast Langchive ↗</a>
     </nav>
   </div>
 </footer>
