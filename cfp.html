@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Call for Papers — NortheastGenAI 2026</title>
+<meta name="description" content="Call for Papers: NortheastGenAI 2026. Submit AI-assisted research on Northeast India's languages, cultures, and ecosystems. Deadline May 15, 2026." />
+<meta property="og:title" content="Call for Papers — NortheastGenAI 2026" />
+<meta property="og:description" content="Submit AI-assisted research on Northeast India's languages, cultures, and ecosystems. Free. Virtual. May 29, 2026." />
+<meta property="og:image" content="https://northeastgenai.github.io/assets/mwirelogo.png" />
+<meta property="og:url" content="https://northeastgenai.github.io/cfp.html" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --red: #9b2335;
+  --red-light: rgba(155,35,53,0.08);
+  --red-mid: rgba(155,35,53,0.15);
+  --dark: #111111;
+  --mid: #444444;
+  --muted: #888888;
+  --border: #e5e5e5;
+  --bg: #ffffff;
+  --bg-alt: #fafafa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: var(--dark); background: var(--bg); }
+
+/* NAV */
+#topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  z-index: 9999;
+}
+#topnav .logo { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #9b2335; text-decoration: none; }
+#topnav .desknav { display: flex; gap: 28px; list-style: none; }
+#topnav .desknav a { font-size: 0.82rem; font-weight: 500; color: #444444; text-decoration: none; }
+#topnav .desknav a:hover { color: #9b2335; }
+#topnav .desknav a.active { color: #9b2335; font-weight: 600; }
+
+#hambtn { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+#hambtn span { display: block; width: 22px; height: 2px; background: #111111; border-radius: 2px; }
+
+#mobnav {
+  display: none;
+  position: fixed;
+  top: 56px; left: 0; right: 0; bottom: 0;
+  background: #ffffff;
+  z-index: 9998;
+  overflow-y: auto;
+  padding: 0 24px 32px;
+  flex-direction: column;
+}
+#mobnav a { display: block; padding: 16px 0; border-bottom: 1px solid #e5e5e5; font-size: 1rem; font-weight: 600; color: #444444; text-decoration: none; }
+#mobnav a:hover { color: #9b2335; }
+#mobnav a:last-child { border-bottom: none; }
+#mobnav.open { display: flex; }
+
+@media (max-width: 768px) {
+  #topnav { padding: 0 20px; }
+  #topnav .desknav { display: none; }
+  #hambtn { display: flex; }
+}
+
+/* PAGE HEADER */
+.page-header {
+  padding-top: 56px;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page-header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 48px 48px;
+}
+.page-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9b2335;
+  margin-bottom: 16px;
+  display: block;
+}
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #111;
+  margin-bottom: 16px;
+}
+.page-sub {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.75;
+  max-width: 580px;
+  margin-bottom: 32px;
+}
+.page-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn-primary { display: inline-block; background: #9b2335; color: #fff; text-decoration: none; padding: 13px 28px; font-size: 0.88rem; font-weight: 600; border-radius: 4px; transition: background 0.2s; }
+.btn-primary:hover { background: #b52a3d; }
+.btn-secondary { display: inline-block; background: transparent; color: #111; text-decoration: none; padding: 13px 28px; font-size: 0.88rem; font-weight: 600; border-radius: 4px; border: 1px solid #e5e5e5; transition: border-color 0.2s; }
+.btn-secondary:hover { border-color: #9b2335; color: #9b2335; }
+
+/* LAYOUT */
+.container { max-width: 900px; margin: 0 auto; padding: 0 48px; }
+section { padding: 72px 0; }
+section.alt { background: #fafafa; }
+hr.sep { border: none; border-top: 1px solid #e5e5e5; }
+
+.section-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9b2335; margin-bottom: 12px; }
+.section-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 2.5vw, 2.1rem); font-weight: 700; color: #111; line-height: 1.2; margin-bottom: 20px; }
+.section-body { font-size: 0.95rem; color: #444; line-height: 1.8; max-width: 640px; }
+.section-body p { margin-bottom: 14px; }
+.section-body p:last-child { margin-bottom: 0; }
+.section-body strong { color: #111; font-weight: 600; }
+.section-body a { color: #9b2335; font-weight: 600; text-decoration: none; }
+.section-body a:hover { text-decoration: underline; }
+
+/* DATES */
+.date-item { display: flex; align-items: baseline; gap: 20px; padding: 18px 0; border-bottom: 1px solid #e5e5e5; }
+.date-item:first-child { border-top: 1px solid #e5e5e5; }
+.date-item.key .date-d { color: #9b2335; }
+.date-d { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: #111; min-width: 140px; flex-shrink: 0; }
+.date-t { font-size: 0.9rem; color: #111; font-weight: 600; }
+.date-n { font-size: 0.82rem; color: #888; margin-top: 2px; }
+.key-pill { display: inline-block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: #9b2335; color: #fff; padding: 2px 7px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
+
+/* GUIDELINES */
+.guideline { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #e5e5e5; align-items: flex-start; }
+.guideline:first-child { border-top: 1px solid #e5e5e5; }
+.g-code { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; color: #9b2335; min-width: 24px; padding-top: 2px; flex-shrink: 0; }
+.g-body { font-size: 0.88rem; color: #444; line-height: 1.7; }
+.g-body strong { color: #111; font-weight: 600; }
+
+/* PUBLISHER */
+.publisher-strip { background: rgba(155,35,53,0.08); border: 1px solid rgba(155,35,53,0.15); border-radius: 4px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
+.publisher-strip img { height: 36px; width: auto; flex-shrink: 0; }
+.publisher-strip p { font-size: 0.85rem; color: #444; line-height: 1.6; }
+.publisher-strip strong { color: #111; font-weight: 600; }
+.publisher-strip a { color: #9b2335; font-weight: 600; text-decoration: none; }
+
+/* TEMPLATE CARD */
+.template-card {
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid #9b2335;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+  background: #fff;
+}
+.template-card-info { flex: 1; }
+.template-card-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9b2335; margin-bottom: 4px; }
+.template-card-name { font-size: 0.92rem; font-weight: 700; color: #111; margin-bottom: 2px; }
+.template-card-meta { font-size: 0.8rem; color: #888; }
+
+/* FAQ */
+.faq-item { padding: 18px 0; border-bottom: 1px solid #e5e5e5; }
+.faq-item:first-child { border-top: 1px solid #e5e5e5; }
+.faq-q { font-size: 0.92rem; font-weight: 700; color: #111; margin-bottom: 6px; }
+.faq-a { font-size: 0.85rem; color: #444; line-height: 1.75; max-width: 680px; }
+.faq-a strong { color: #111; font-weight: 600; }
+
+/* FOOTER */
+footer { background: #111; padding: 48px 0; }
+.footer-inner { max-width: 900px; margin: 0 auto; padding: 0 48px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #f0f0f0; margin-bottom: 6px; }
+.footer-meta { font-size: 0.78rem; color: #666; line-height: 1.8; }
+.footer-meta a { color: #888; text-decoration: none; }
+.footer-meta a:hover { color: #f0f0f0; }
+.footer-logos { display: flex; align-items: center; gap: 14px; margin-top: 14px; }
+.footer-logos img { height: 28px; width: auto; opacity: 0.5; filter: brightness(0) invert(1); transition: opacity 0.2s; }
+.footer-logos img:hover { opacity: 0.9; }
+.footer-col { display: flex; flex-direction: column; gap: 6px; }
+.footer-col a { font-size: 0.8rem; color: #555; text-decoration: none; }
+.footer-col a:hover { color: #f0f0f0; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .page-header-inner { padding: 48px 20px 40px; }
+  .container { padding: 0 20px; }
+  section { padding: 52px 0; }
+  footer { padding: 40px 0; }
+  .footer-inner { padding: 0 20px; }
+  .publisher-strip { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .template-card { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .page-actions { flex-direction: column; }
+  .date-item { flex-direction: column; gap: 4px; }
+  .date-d { min-width: unset; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav">
+  <a href="index.html" class="logo">NortheastGenAI 2026</a>
+  <ul class="desknav">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#topics">Tracks</a></li>
+    <li><a href="cfp.html" class="active">CFP</a></li>
+    <li><a href="index.html#program">Program</a></li>
+    <li><a href="index.html#team">Team</a></li>
+    <li><a href="index.html#join">Get Involved</a></li>
+  </ul>
+  <button id="hambtn" aria-label="Menu" onclick="document.getElementById('mobnav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div id="mobnav">
+  <a href="index.html#about" onclick="document.getElementById('mobnav').classList.remove('open')">About</a>
+  <a href="index.html#topics" onclick="document.getElementById('mobnav').classList.remove('open')">Tracks</a>
+  <a href="cfp.html" onclick="document.getElementById('mobnav').classList.remove('open')">CFP</a>
+  <a href="index.html#program" onclick="document.getElementById('mobnav').classList.remove('open')">Program</a>
+  <a href="index.html#team" onclick="document.getElementById('mobnav').classList.remove('open')">Team</a>
+  <a href="index.html#join" onclick="document.getElementById('mobnav').classList.remove('open')">Get Involved</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-eyebrow">NortheastGenAI 2026 · May 29, 2026 · Virtual · Free</span>
+    <h1 class="page-title">Call for Papers</h1>
+    <p class="page-sub">We invite AI-assisted research submissions on Northeast India's languages, cultures, histories, and ecosystems. Submissions open April 8, 2026. Completely free.</p>
+    <div class="page-actions">
+      <a href="https://openreview.net/group?id=NortheastGenAI/2026/Workshop" target="_blank" class="btn-primary">Submit on OpenReview ↗</a>
+      <a href="https://northeastgenai.github.io/assets/NortheastGenAI_2026_Template.docx" download class="btn-secondary">Download Template ↓</a>
+    </div>
+  </div>
+</div>
+
+<hr class="sep" />
+
+<!-- DATES -->
+<section id="dates">
+  <div class="container">
+    <p class="section-tag reveal">Timeline</p>
+    <h2 class="section-heading reveal">Important Dates</h2>
+    <p class="section-body reveal" style="margin-bottom:0;">All deadlines in IST. Fully virtual — no travel required.</p>
+    <div class="reveal">
+      <div class="date-item key"><div class="date-d">April 8, 2026</div><div><div class="date-t">Submissions Open <span class="key-pill">Key</span></div><div class="date-n">OpenReview portal goes live.</div></div></div>
+      <div class="date-item key"><div class="date-d">May 15, 2026</div><div><div class="date-t">Submission Deadline <span class="key-pill">Key</span></div><div class="date-n">11:59 PM IST. No extensions.</div></div></div>
+      <div class="date-item"><div class="date-d">May 15 to 23</div><div><div class="date-t">Review Period</div><div class="date-n">AI-assisted review followed by human editorial check.</div></div></div>
+      <div class="date-item"><div class="date-d">May 23, 2026</div><div><div class="date-t">Acceptance Notifications</div><div class="date-n">Via OpenReview and email.</div></div></div>
+      <div class="date-item key"><div class="date-d">May 29, 2026</div><div><div class="date-t">Workshop Day <span class="key-pill">Key</span></div><div class="date-n">Virtual · Keynotes, presentations, proceedings release.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep" />
+
+<!-- GUIDELINES -->
+<section id="guidelines" class="alt">
+  <div class="container">
+    <p class="section-tag reveal">Submissions</p>
+    <h2 class="section-heading reveal">Submission Guidelines</h2>
+    <div class="reveal">
+      <div class="guideline"><span class="g-code">G1</span><span class="g-body"><strong>AI-assisted or AI-generated.</strong> Submissions must be substantially generated or assisted by an AI system (e.g., GPT, Claude, Gemini), with clear disclosure of methodology.</span></div>
+      <div class="guideline"><span class="g-code">G2</span><span class="g-body"><strong>Disclosure is mandatory.</strong> Include a paragraph naming the AI model and describing the prompting method. No disclosure = desk rejection.</span></div>
+      <div class="guideline"><span class="g-code">G3</span><span class="g-body"><strong>Maximum 4 pages,</strong> excluding references. Any standard academic format (ACL, LREC, or similar) is acceptable. Use the provided Word template or any equivalent.</span></div>
+      <div class="guideline"><span class="g-code">G4</span><span class="g-body"><strong>Northeast India focus required.</strong> All submissions must engage with one of the three tracks: Language/Culture/Heritage, Society/History/Anthropology, or AI and Technology for NE India.</span></div>
+      <div class="guideline"><span class="g-code">G5</span><span class="g-body"><strong>Non-archival by design.</strong> Authors are free to submit extended versions to ACL, LREC, NeurIPS, or other venues. Proceedings published via Northeast Langchive under CC-BY-4.0.</span></div>
+      <div class="guideline"><span class="g-code">G6</span><span class="g-body"><strong>Completely free.</strong> No submission, review, or attendance fees.</span></div>
+      <div class="guideline"><span class="g-code">G7</span><span class="g-body"><strong>Grounding required.</strong> Include at least one of: a dataset, field reference, citation, or empirical observation related to Northeast India.</span></div>
+      <div class="guideline"><span class="g-code">G8</span><span class="g-body"><strong>Exploratory work is welcome.</strong> Negative results, small datasets, pilot studies, and early-stage ideas are all valid submissions if clearly grounded.</span></div>
+    </div>
+
+    <!-- Template -->
+    <div class="template-card reveal">
+      <div class="template-card-info">
+        <div class="template-card-label">Submission Template</div>
+        <div class="template-card-name">NortheastGenAI 2026 — Word Template (.docx)</div>
+        <div class="template-card-meta">Includes formatting guide, section structure, AI Disclosure section, and AI Involvement Checklist.</div>
+      </div>
+      <a href="https://northeastgenai.github.io/assets/NortheastGenAI_2026_Template.docx" download class="btn-secondary">Download ↓</a>
+    </div>
+
+    <!-- Publisher -->
+    <div class="publisher-strip reveal" style="margin-top:28px;margin-bottom:0;">
+      <img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" />
+      <p><strong>Proceedings published by Northeast Langchive</strong> — academic book series for Northeast Indian languages and technologies. CC-BY-4.0 with ISBN. <a href="https://northeastlangchive.org" target="_blank">northeastlangchive.org ↗</a></p>
+    </div>
+
+    <div style="margin-top:28px;" class="reveal">
+      <a href="https://openreview.net/group?id=NortheastGenAI/2026/Workshop" target="_blank" class="btn-primary">Submit on OpenReview ↗</a>
+      <span style="margin-left:16px;font-size:0.83rem;color:#888;">Opens April 8, 2026 · Free account required</span>
+    </div>
+  </div>
+</section>
+
+<hr class="sep" />
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <p class="section-tag reveal">FAQ</p>
+    <h2 class="section-heading reveal">Frequently Asked Questions</h2>
+    <div class="reveal">
+      <div class="faq-item"><div class="faq-q">Do I need to be an academic to submit?</div><div class="faq-a">No. Anyone may submit — students, independent contributors, practitioners, researchers. The requirement is NE India topic engagement and transparent AI authorship.</div></div>
+      <div class="faq-item"><div class="faq-q">What does "non-archival" mean?</div><div class="faq-a"><strong>Authors are free to submit the same work elsewhere.</strong> We publish an open-access proceedings volume via Northeast Langchive under CC-BY-4.0 — not a formal archival publication.</div></div>
+      <div class="faq-item"><div class="faq-q">How are papers reviewed?</div><div class="faq-a">AI-assisted review across relevance, plausibility, novelty, and clarity, followed by a human editorial check. All reviews published openly on OpenReview.</div></div>
+      <div class="faq-item"><div class="faq-q">Is there a fee?</div><div class="faq-a">No. NortheastGenAI 2026 is completely free to submit, attend, and read.</div></div>
+      <div class="faq-item"><div class="faq-q">Can I submit from outside Northeast India?</div><div class="faq-a">Yes. The requirement is on subject matter — engage with one of the three tracks with a clear NE India focus.</div></div>
+      <div class="faq-item"><div class="faq-q">What format should my paper be in?</div><div class="faq-a">Any standard academic format (ACL, LREC, or similar). Maximum 4 pages excluding references. Use the provided Word template or any equivalent. Submit as PDF via OpenReview.</div></div>
+      <div class="faq-item"><div class="faq-q">Where will proceedings be published?</div><div class="faq-a">In the NortheastGenAI 2026 proceedings volume by <strong>Northeast Langchive</strong> — ISBN, CC-BY-4.0, freely accessible.</div></div>
+      <div class="faq-item"><div class="faq-q">Why non-archival?</div><div class="faq-a">This is explicitly experimental. Non-archival lets us explore and publish transparently without making claims about AI research quality we cannot yet support.</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep" />
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">NortheastGenAI 2026</div>
+      <div class="footer-meta">
+        Organized by <a href="https://mwirelabs.com" target="_blank">MWire Labs</a><br />
+        Shillong, Meghalaya, India<br />
+        <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a>
+      </div>
+      <div class="footer-logos">
+        <img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" />
+      </div>
+    </div>
+    <div class="footer-col">
+      <a href="index.html#about">About</a>
+      <a href="index.html#topics">Tracks</a>
+      <a href="index.html#program">Program</a>
+      <a href="cfp.html">Call for Papers</a>
+      <a href="index.html#team">Team</a>
+      <a href="index.html#join">Get Involved</a>
+      <a href="https://mwirelabs.com" target="_blank">MWire Labs ↗</a>
+      <a href="https://northeastlangchive.org" target="_blank">Northeast Langchive ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var reveals = document.querySelectorAll('.reveal');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) {
+    if (e.isIntersecting) {
+      setTimeout(function() { e.target.classList.add('visible'); }, i * 60);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07 });
+reveals.forEach(function(el) { observer.observe(el); });
+</script>
+
+</body>
+</html>
