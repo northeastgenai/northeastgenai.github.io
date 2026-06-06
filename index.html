@@ -88,7 +88,7 @@ body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; colo
 .btn-secondary:hover { border-color: #9b2335; color: #9b2335; }
 
 .stats-bar { border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; background: #fafafa; display: flex; justify-content: center; }
-.stats-inner { max-width: 900px; width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 48px; }
+.stats-inner { max-width: 900px; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); padding: 0 48px; }
 .stat { padding: 24px 16px; text-align: center; border-right: 1px solid #e5e5e5; }
 .stat:last-child { border-right: none; }
 .stat-val { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #9b2335; line-height: 1; margin-bottom: 4px; }
@@ -108,8 +108,6 @@ hr.sep { border: none; border-top: 1px solid #e5e5e5; }
 .section-body strong { color: #111; font-weight: 600; }
 .section-body a { color: #9b2335; font-weight: 600; text-decoration: none; }
 .section-body a:hover { text-decoration: underline; }
-
-hr.sep { border: none; border-top: 1px solid #e5e5e5; }
 
 /* DATES */
 .date-item { display: flex; align-items: baseline; gap: 20px; padding: 18px 0; border-bottom: 1px solid #e5e5e5; }
@@ -143,6 +141,56 @@ hr.sep { border: none; border-top: 1px solid #e5e5e5; }
 .prog-name { font-size: 0.9rem; font-weight: 700; color: #111; margin-bottom: 2px; }
 .prog-desc { font-size: 0.82rem; color: #888; }
 
+/* PAPER CARDS */
+.paper-card {
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid #9b2335;
+  padding: 14px 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.paper-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.paper-card-title { font-size: 0.78rem; font-weight: 600; color: #111; line-height: 1.45; }
+.paper-card-author { font-size: 0.72rem; color: #888; margin-top: 3px; }
+.paper-card-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+.paper-btn {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.15s, color 0.15s;
+}
+.paper-btn-review {
+  color: #9b2335;
+  border: 1px solid rgba(155,35,53,0.3);
+}
+.paper-btn-review:hover { background: rgba(155,35,53,0.06); }
+.paper-btn-pdf {
+  color: #fff;
+  background: #9b2335;
+  border: 1px solid #9b2335;
+}
+.paper-btn-pdf:hover { background: #b52a3d; }
+.paper-btn-yt {
+  color: #c00;
+  border: 1px solid rgba(204,0,0,0.25);
+  background: rgba(204,0,0,0.04);
+}
+.paper-btn-yt:hover { background: rgba(204,0,0,0.1); }
+
 /* PEOPLE */
 .people-block { margin-bottom: 40px; }
 .people-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #888; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
@@ -160,8 +208,6 @@ hr.sep { border: none; border-top: 1px solid #e5e5e5; }
 .person-name-sm { font-size: 0.88rem; font-weight: 700; color: #111; margin-bottom: 2px; line-height: 1.3; }
 .person-affil-sm { font-size: 0.76rem; color: #888; line-height: 1.4; }
 .person-bio-sm { font-size: 0.74rem; color: #888; line-height: 1.5; margin-top: 6px; }
-.tba-card { border: 1px dashed #e5e5e5; padding: 16px 18px; background: #fafafa; display: flex; align-items: center; gap: 14px; }
-.tba-icon { width: 52px; height: 52px; border-radius: 50%; background: #e5e5e5; display: flex; align-items: center; justify-content: center; color: #888; font-size: 1.2rem; flex-shrink: 0; }
 
 /* PUBLISHER */
 .publisher-strip { background: rgba(155,35,53,0.08); border: 1px solid rgba(155,35,53,0.15); border-radius: 4px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
@@ -169,32 +215,6 @@ hr.sep { border: none; border-top: 1px solid #e5e5e5; }
 .publisher-strip p { font-size: 0.85rem; color: #444; line-height: 1.6; }
 .publisher-strip strong { color: #111; font-weight: 600; }
 .publisher-strip a { color: #9b2335; font-weight: 600; text-decoration: none; }
-
-/* OPEN SLOTS */
-.open-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
-.open-card { border: 1px dashed #e5e5e5; background: #fafafa; padding: 20px; border-radius: 4px; }
-.open-card-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9b2335; margin-bottom: 6px; }
-.open-card-title { font-size: 0.92rem; font-weight: 700; color: #888; font-style: italic; margin-bottom: 8px; }
-.open-card p { font-size: 0.83rem; color: #888; line-height: 1.65; }
-.open-card a { color: #9b2335; font-weight: 600; text-decoration: none; }
-
-/* INVOLVE */
-.involve-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-.involve-card { padding: 22px; border: 1px solid #e5e5e5; border-radius: 4px; border-top: 3px solid #9b2335; }
-.involve-tag { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #9b2335; margin-bottom: 10px; display: block; }
-.involve-card h3 { font-size: 0.95rem; font-weight: 700; color: #111; margin-bottom: 8px; }
-.involve-card p { font-size: 0.83rem; color: #888; line-height: 1.7; margin-bottom: 14px; }
-.involve-card a { font-size: 0.82rem; font-weight: 600; color: #9b2335; text-decoration: none; }
-.contact-strip { background: #9b2335; border-radius: 4px; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.contact-strip p { font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.85); }
-.contact-strip a { font-size: 0.95rem; font-weight: 700; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); }
-
-/* FAQ */
-.faq-item { padding: 18px 0; border-bottom: 1px solid #e5e5e5; }
-.faq-item:first-child { border-top: 1px solid #e5e5e5; }
-.faq-q { font-size: 0.92rem; font-weight: 700; color: #111; margin-bottom: 6px; }
-.faq-a { font-size: 0.85rem; color: #444; line-height: 1.75; max-width: 680px; }
-.faq-a strong { color: #111; font-weight: 600; }
 
 /* FOOTER */
 footer { background: #111; padding: 48px 0; }
@@ -224,14 +244,13 @@ footer { background: #111; padding: 48px 0; }
   .container { padding: 0 20px; }
   section { padding: 52px 0; }
   .tracks-grid { grid-template-columns: 1fr; }
-  .open-grid { grid-template-columns: 1fr; }
-  .involve-grid { grid-template-columns: 1fr; }
   .people-row-2 { grid-template-columns: 1fr; }
   .people-row-3 { grid-template-columns: 1fr; }
   footer { padding: 40px 0; }
   .footer-inner { padding: 0 20px; }
-  .contact-strip { flex-direction: column; align-items: flex-start; }
   .publisher-strip { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .paper-card-top { flex-direction: column; }
+  .paper-card-actions { width: 100%; }
 }
 @media (max-width: 480px) {
   .hero-actions { flex-direction: column; align-items: center; }
@@ -251,7 +270,6 @@ footer { background: #111; padding: 48px 0; }
     <li><a href="cfp.html">CFP</a></li>
     <li><a href="#program">Program</a></li>
     <li><a href="#team">Team</a></li>
-    <li><a href="#join">Get Involved</a></li>
   </ul>
   <button id="hambtn" aria-label="Menu" onclick="document.getElementById('mobnav').classList.toggle('open')">
     <span></span><span></span><span></span>
@@ -264,7 +282,6 @@ footer { background: #111; padding: 48px 0; }
   <a href="cfp.html" onclick="document.getElementById('mobnav').classList.remove('open')">CFP</a>
   <a href="#program" onclick="document.getElementById('mobnav').classList.remove('open')">Program</a>
   <a href="#team" onclick="document.getElementById('mobnav').classList.remove('open')">Team</a>
-  <a href="#join" onclick="document.getElementById('mobnav').classList.remove('open')">Get Involved</a>
 </div>
 
 <!-- HERO -->
@@ -275,19 +292,19 @@ footer { background: #111; padding: 48px 0; }
     <h1 class="hero-title">Can AI research<br /><em>Northeast India?</em></h1>
     <p class="hero-sub">The first workshop focused on AI assisted research on Northeast India's languages, cultures, and ecosystems - openly, transparently, and with full disclosure. Inspired by <a href="https://agents4science.stanford.edu/" target="_blank">Agents4Science 2025 (Stanford)</a>.</p>
     <div class="hero-actions">
-  <a href="#program" class="btn-primary">View Program</a>
-  <a href="https://forms.gle/Tw7cQLkGjMBZHyrX9" target="_blank" class="btn-secondary">Register as Attendee</a>
-</div>
+      <a href="#program" class="btn-primary">View Program</a>
+      <a href="#program" class="btn-secondary">Accepted Papers →</a>
+    </div>
     <div style="margin-top:20px;background:rgba(155,35,53,0.06);border:1px solid rgba(155,35,53,0.2);border-left:3px solid #9b2335;border-radius:4px;padding:14px 18px;max-width:580px;margin-left:auto;margin-right:auto;text-align:left;">
-  <p style="font-size:0.78rem;color:#444;margin:0;line-height:1.7;"><strong style="color:#9b2335;">Questions about the workshop?</strong> Write to <a href="mailto:connect@mwirelabs.com" style="color:#9b2335;font-weight:600;">connect@mwirelabs.com</a></p>
-</div>
+      <p style="font-size:0.78rem;color:#444;margin:0;line-height:1.7;"><strong style="color:#9b2335;">Questions about the workshop?</strong> Write to <a href="mailto:connect@mwirelabs.com" style="color:#9b2335;font-weight:600;">connect@mwirelabs.com</a></p>
+    </div>
   </div>
   <div class="stats-bar">
-    <<div class="stats-inner" style="grid-template-columns: repeat(3, 1fr);">
-  <div class="stat"><div class="stat-val">May 29</div><div class="stat-label">Workshop Date</div></div>
-  <div class="stat"><div class="stat-val">7</div><div class="stat-label">Accepted Papers</div></div>
-  <div class="stat"><div class="stat-val">Virtual & Free</div><div class="stat-label">No Fees · Open to All</div></div>
-</div>
+    <div class="stats-inner">
+      <div class="stat"><div class="stat-val">May 29</div><div class="stat-label">Workshop Date</div></div>
+      <div class="stat"><div class="stat-val">7</div><div class="stat-label">Accepted Papers</div></div>
+      <div class="stat"><div class="stat-val">Virtual & Free</div><div class="stat-label">No Fees · Open to All</div></div>
+    </div>
   </div>
 </div>
 
@@ -303,7 +320,6 @@ footer { background: #111; padding: 48px 0; }
       <p>The workshop draws inspiration from the spirit of Agents4Science 2025, an open experiment in AI-assisted research - while adapting it for a domain where the stakes are highest: <strong>low-resource, underrepresented, and urgently underdocumented</strong> knowledge systems of the Eastern Himalayan and Indo-Burma region.</p>
       <p>This workshop does not position AI research as a replacement for human scholarship. We are asking an open question and publishing everything that results. All submissions, prompting methods, and AI-generated reviews are publicly visible on OpenReview. <strong>Humans remain the final gatekeepers.</strong> Every AI-assisted review is followed by a human editorial check. No acceptance or rejection is decided by AI alone. The final call on all submissions rests with the workshop chairs and program committee.</p>
       <p>This workshop positions Northeast India as a critical testbed for AI in truly low-resource, high-diversity environments. NortheastGenAI is supported by a Cohere Labs Catalyst Grant for AI-assisted research.</p>
-
     </div>
   </div>
 </section>
@@ -338,10 +354,10 @@ footer { background: #111; padding: 48px 0; }
     </div>
   </div>
   <div style="text-align:center;padding:22px 0 8px;">
-  <a href="cfp.html" class="btn-primary">Read the Call for Papers →</a>
-</div>
+    <a href="cfp.html" class="btn-primary">Read the Call for Papers →</a>
+  </div>
 </section>
-  
+
 <hr class="sep" />
 
 <!-- PROGRAM -->
@@ -349,45 +365,119 @@ footer { background: #111; padding: 48px 0; }
   <div class="container">
     <p class="section-tag reveal">Program</p>
     <h2 class="section-heading reveal">Workshop Program — May 29, 2026</h2>
-    <p class="section-body reveal" style="margin-bottom:24px;">Indicative schedule in IST. Full program confirmed after acceptances.</p>
-   <div class="reveal">
-  <div class="prog-item"><div class="prog-time">10:30 to 10:45</div><div><div class="prog-name">Opening Remarks</div><div class="prog-desc">Welcome by MWire Labs. Introduction to NortheastGenAI.</div></div></div>
-  <div class="prog-item"><div class="prog-time">10:45 to 11:05</div><div><div class="prog-name">Keynote I — Bonaventure F. P. Dossou</div><div class="prog-desc">Doing More with Less: Efficient Methods for Low-Resource Languages</div></div></div>
-  <div class="prog-item"><div class="prog-time">11:05 to 11:25</div><div><div class="prog-name">Keynote II — Dr. Prabhat Kumar Bharti</div><div class="prog-desc">CO-REVIEWER: Can AI Review Like a Human? An Agentic Framework for LLM–Human Alignment in Peer Review</div></div></div>
-  <div class="prog-item"><div class="prog-time">11:25 to 12:35</div><div><div class="prog-name">Paper Presentations</div><div class="prog-desc">7 accepted papers · 10 minutes each including Q&amp;A</div>
-    <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
-      <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:10px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div><div style="font-size:0.78rem;font-weight:600;color:#111;">From Oral Tradition to Digital Future: Documenting the Mising Language through Community Initiatives and AI</div><div style="font-size:0.72rem;color:#888;margin-top:2px;">Mahatma Doley</div></div>
-        <a href="https://openreview.net/forum?id=FSM7tsR5Uv" target="_blank" style="font-size:0.7rem;font-weight:600;color:#9b2335;text-decoration:none;white-space:nowrap;border:1px solid rgba(155,35,53,0.3);padding:4px 10px;border-radius:3px;flex-shrink:0;">OpenReview ↗</a>
+    <p class="section-body reveal" style="margin-bottom:24px;">All times in IST. <a href="https://northeastgenai.github.io/assets/01_Overview_NortheastGenAI.pdf" target="_blank" style="color:#9b2335;font-weight:600;">Download Workshop Overview PDF ↗</a></p>
+    <div class="reveal">
+      <div class="prog-item"><div class="prog-time">10:30 to 10:45</div><div><div class="prog-name">Opening Remarks</div><div class="prog-desc">Welcome by MWire Labs. Introduction to NortheastGenAI.</div></div></div>
+      <div class="prog-item"><div class="prog-time">10:45 to 11:05</div><div><div class="prog-name">Keynote I — Bonaventure F. P. Dossou</div><div class="prog-desc">Doing More with Less: Efficient Methods for Low-Resource Languages</div></div></div>
+      <div class="prog-item"><div class="prog-time">11:05 to 11:25</div><div><div class="prog-name">Keynote II — Dr. Prabhat Kumar Bharti</div><div class="prog-desc">CO-REVIEWER: Can AI Review Like a Human? An Agentic Framework for LLM–Human Alignment in Peer Review</div></div></div>
+      <div class="prog-item">
+        <div class="prog-time">11:25 to 12:35</div>
+        <div style="width:100%;">
+          <div class="prog-name">Paper Presentations</div>
+          <div class="prog-desc" style="margin-bottom:14px;">7 accepted papers · 10 minutes each including Q&amp;A</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+
+            <div class="paper-card">
+              <div class="paper-card-top">
+                <div>
+                  <div class="paper-card-title">From Oral Tradition to Digital Future: Documenting the Mising Language through Community Initiatives and AI</div>
+                  <div class="paper-card-author">Mahatma Doley</div>
+                </div>
+                <div class="paper-card-actions">
+                  <a href="https://northeastgenai.github.io/assets/02_Mising_AI.pdf" target="_blank" class="paper-btn paper-btn-pdf">↓ PDF</a>
+                  <a href="https://openreview.net/forum?id=FSM7tsR5Uv" target="_blank" class="paper-btn paper-btn-review">OpenReview ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="paper-card">
+              <div class="paper-card-top">
+                <div>
+                  <div class="paper-card-title">AI and Digital Public Infrastructure for Northeast India: A Low Resource Framework for Inclusive Governance, Education, and Climate Resilience</div>
+                  <div class="paper-card-author">Ananya Mall</div>
+                </div>
+                <div class="paper-card-actions">
+                  <a href="https://northeastgenai.github.io/assets/03_AI_DPI_NE.pdf" target="_blank" class="paper-btn paper-btn-pdf">↓ PDF</a>
+                  <a href="https://openreview.net/forum?id=k3fkUnbc4O" target="_blank" class="paper-btn paper-btn-review">OpenReview ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="paper-card">
+              <div class="paper-card-top">
+                <div>
+                  <div class="paper-card-title">Is Khasi Society Truly Matriarchal? A Critical Study of Matriliny and Gender Power in Meghalaya</div>
+                  <div class="paper-card-author">Arman Khan, Shaneya Dutta</div>
+                </div>
+                <div class="paper-card-actions">
+                  <a href="https://northeastgenai.github.io/assets/04_Khasi_Matriarchy.pdf" target="_blank" class="paper-btn paper-btn-pdf">↓ PDF</a>
+                  <a href="https://www.youtube.com/watch?v=ElQKB1myKMQ" target="_blank" class="paper-btn paper-btn-yt">▶ Video</a>
+                  <a href="https://openreview.net/forum?id=MaAglIuWgC" target="_blank" class="paper-btn paper-btn-review">OpenReview ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="paper-card">
+              <div class="paper-card-top">
+                <div>
+                  <div class="paper-card-title">AssamBench: Toward a Comprehensive Benchmark for Evaluating Large Language Models on Assamese</div>
+                  <div class="paper-card-author">Jubeir Jadid, Mustafa Azad Hussain</div>
+                </div>
+                <div class="paper-card-actions">
+                  <a href="https://northeastgenai.github.io/assets/05_AssamBench.pdf" target="_blank" class="paper-btn paper-btn-pdf">↓ PDF</a>
+                  <a href="https://www.youtube.com/watch?v=N7I54jbZqns" target="_blank" class="paper-btn paper-btn-yt">▶ Video</a>
+                  <a href="https://openreview.net/forum?id=NgVHIIErL1" target="_blank" class="paper-btn paper-btn-review">OpenReview ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="paper-card">
+              <div class="paper-card-top">
+                <div>
+                  <div class="paper-card-title">Language, Artificial Intelligence, and Digital Equity in North East India: A Quantitative and Policy Analysis of Low-Resource Language Exclusion, Educational Infrastructure, and Climate Knowledge System</div>
+                  <div class="paper-card-author">Amme Shirisha, Baksheesh Sachar</div>
+                </div>
+                <div class="paper-card-actions">
+                  <a href="https://northeastgenai.github.io/assets/06_Digital_Equity_NE.pdf" target="_blank" class="paper-btn paper-btn-pdf">↓ PDF</a>
+                  <a href="https://www.youtube.com/watch?v=10U8TSTV0P4" target="_blank" class="paper-btn paper-btn-yt">▶ Video</a>
+                  <a href="https://openreview.net/forum?id=wh3JZwyJDV" target="_blank" class="paper-btn paper-btn-review">OpenReview ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="paper-card">
+              <div class="paper-card-top">
+                <div>
+                  <div class="paper-card-title">AI-Assisted Spatio-Temporal Analysis of Forest Cover and Carbon Dynamics in Northeast India: A Remote Sensing and GIS Approach</div>
+                  <div class="paper-card-author">Arman Khan</div>
+                </div>
+                <div class="paper-card-actions">
+                  <a href="https://northeastgenai.github.io/assets/07_Forest_Carbon_GIS.pdf" target="_blank" class="paper-btn paper-btn-pdf">↓ PDF</a>
+                  <a href="https://www.youtube.com/watch?v=-evXWhD0Aq8" target="_blank" class="paper-btn paper-btn-yt">▶ Video</a>
+                  <a href="https://openreview.net/forum?id=2Dg83dv8fB" target="_blank" class="paper-btn paper-btn-review">OpenReview ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="paper-card">
+              <div class="paper-card-top">
+                <div>
+                  <div class="paper-card-title">Beyond Connectivity: A Multi-Dimensional AI Readiness Gap Analysis for Northeast India</div>
+                  <div class="paper-card-author">Baksheesh Sachar, Amme Shirisha</div>
+                </div>
+                <div class="paper-card-actions">
+                  <a href="https://northeastgenai.github.io/assets/08_Beyond_Connectivity_AI_Readiness.pdf" target="_blank" class="paper-btn paper-btn-pdf">↓ PDF</a>
+                  <a href="https://www.youtube.com/watch?v=KTtnoWQ2jW0" target="_blank" class="paper-btn paper-btn-yt">▶ Video</a>
+                  <a href="https://openreview.net/forum?id=hER7jabNVh" target="_blank" class="paper-btn paper-btn-review">OpenReview ↗</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
-      <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:10px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div><div style="font-size:0.78rem;font-weight:600;color:#111;">AI and Digital Public Infrastructure for Northeast India: A Low Resource Framework for Inclusive Governance, Education, and Climate Resilience</div><div style="font-size:0.72rem;color:#888;margin-top:2px;">Ananya Mall</div></div>
-        <a href="https://openreview.net/forum?id=k3fkUnbc4O" target="_blank" style="font-size:0.7rem;font-weight:600;color:#9b2335;text-decoration:none;white-space:nowrap;border:1px solid rgba(155,35,53,0.3);padding:4px 10px;border-radius:3px;flex-shrink:0;">OpenReview ↗</a>
-      </div>
-      <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:10px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div><div style="font-size:0.78rem;font-weight:600;color:#111;">Is Khasi Society Truly Matriarchal? A Critical Study of Matriliny and Gender Power in Meghalaya</div><div style="font-size:0.72rem;color:#888;margin-top:2px;">Arman Khan, Shaneya Dutta</div></div>
-        <a href="https://openreview.net/forum?id=MaAglIuWgC" target="_blank" style="font-size:0.7rem;font-weight:600;color:#9b2335;text-decoration:none;white-space:nowrap;border:1px solid rgba(155,35,53,0.3);padding:4px 10px;border-radius:3px;flex-shrink:0;">OpenReview ↗</a>
-      </div>
-      <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:10px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div><div style="font-size:0.78rem;font-weight:600;color:#111;">AssamBench: Toward a Comprehensive Benchmark for Evaluating Large Language Models on Assamese</div><div style="font-size:0.72rem;color:#888;margin-top:2px;">Jubeir Jadid, Mustafa Azad Hussain</div></div>
-        <a href="https://openreview.net/forum?id=NgVHIIErL1" target="_blank" style="font-size:0.7rem;font-weight:600;color:#9b2335;text-decoration:none;white-space:nowrap;border:1px solid rgba(155,35,53,0.3);padding:4px 10px;border-radius:3px;flex-shrink:0;">OpenReview ↗</a>
-      </div>
-      <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:10px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div><div style="font-size:0.78rem;font-weight:600;color:#111;">Language, Artificial Intelligence, and Digital Equity in North East India: A Quantitative and Policy Analysis of Low-Resource Language Exclusion, Educational Infrastructure, and Climate Knowledge System</div><div style="font-size:0.72rem;color:#888;margin-top:2px;">Amme Shirisha, Baksheesh Sachar</div></div>
-        <a href="https://openreview.net/forum?id=wh3JZwyJDV" target="_blank" style="font-size:0.7rem;font-weight:600;color:#9b2335;text-decoration:none;white-space:nowrap;border:1px solid rgba(155,35,53,0.3);padding:4px 10px;border-radius:3px;flex-shrink:0;">OpenReview ↗</a>
-      </div>
-      <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:10px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div><div style="font-size:0.78rem;font-weight:600;color:#111;">AI-Assisted Spatio-Temporal Analysis of Forest Cover and Carbon Dynamics in Northeast India: A Remote Sensing and GIS Approach</div><div style="font-size:0.72rem;color:#888;margin-top:2px;">Arman Khan</div></div>
-        <a href="https://openreview.net/forum?id=2Dg83dv8fB" target="_blank" style="font-size:0.7rem;font-weight:600;color:#9b2335;text-decoration:none;white-space:nowrap;border:1px solid rgba(155,35,53,0.3);padding:4px 10px;border-radius:3px;flex-shrink:0;">OpenReview ↗</a>
-      </div>
-      <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:10px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div><div style="font-size:0.78rem;font-weight:600;color:#111;">Beyond Connectivity: A Multi-Dimensional AI Readiness Gap Analysis for Northeast India</div><div style="font-size:0.72rem;color:#888;margin-top:2px;">Baksheesh Sachar, Amme Shirisha</div></div>
-        <a href="https://openreview.net/forum?id=hER7jabNVh" target="_blank" style="font-size:0.7rem;font-weight:600;color:#9b2335;text-decoration:none;white-space:nowrap;border:1px solid rgba(155,35,53,0.3);padding:4px 10px;border-radius:3px;flex-shrink:0;">OpenReview ↗</a>
-      </div>
+      <div class="prog-item"><div class="prog-time">12:35 to 12:50</div><div><div class="prog-name">Closing and Proceedings</div><div class="prog-desc">Proceedings PDF released via Northeast Langchive. NortheastGenAI 2027 announcement.</div></div></div>
     </div>
-  </div></div>
-  <div class="prog-item"><div class="prog-time">12:35 to 12:50</div><div><div class="prog-name">Closing and Proceedings</div><div class="prog-desc">Proceedings PDF released via Northeast Langchive. NortheastGenAI 2027 announcement.</div></div></div>
-</div>
     <div class="publisher-strip reveal" style="margin-top:28px;">
       <img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" />
       <p><strong>Proceedings Publisher — Northeast Langchive</strong> · Academic book series with ISBN, CC-BY-4.0. <a href="https://northeastlangchive.org" target="_blank">northeastlangchive.org ↗</a></p>
@@ -429,61 +519,61 @@ footer { background: #111; padding: 48px 0; }
       </div>
     </div>
 
-<div class="people-block reveal">
-  <div class="people-label">Keynote Speakers</div>
-  <div style="display:flex;flex-direction:column;gap:16px;">
-    <div class="person chair" style="align-items:flex-start;">
-      <img src="https://northeastgenai.github.io/assets/Bonaventure.jpg" alt="Bonaventure F. P. Dossou" style="width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0;" />
-      <div>
-        <div class="person-role-sm">Keynote I</div>
-        <div class="person-name-sm">Bonaventure F. P. Dossou</div>
-        <div class="person-affil-sm">PhD Candidate, McGill University &amp; Mila · Masakhane Research Community</div>
-        <div class="person-bio-sm" style="margin-top:4px;font-style:italic;color:#9b2335;font-size:0.74rem;">Doing More with Less: Efficient Methods for Low-Resource Languages</div>
-        <div class="person-bio-sm">Beninese AI researcher working at the intersection of low-resource NLP and healthcare AI. One of the leading researchers behind the computational study of Fon, playing a key role in bringing it into Google Translate. A core member of Masakhane — building AI that works for the communities that built the world's languages, not just the ones that dominate its datasets.</div>
+    <div class="people-block reveal">
+      <div class="people-label">Keynote Speakers</div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="person chair" style="align-items:flex-start;">
+          <img src="https://northeastgenai.github.io/assets/Bonaventure.jpg" alt="Bonaventure F. P. Dossou" style="width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0;" />
+          <div>
+            <div class="person-role-sm">Keynote I</div>
+            <div class="person-name-sm">Bonaventure F. P. Dossou</div>
+            <div class="person-affil-sm">PhD Candidate, McGill University &amp; Mila · Masakhane Research Community</div>
+            <div class="person-bio-sm" style="margin-top:4px;font-style:italic;color:#9b2335;font-size:0.74rem;">Doing More with Less: Efficient Methods for Low-Resource Languages</div>
+            <div class="person-bio-sm">Beninese AI researcher working at the intersection of low-resource NLP and healthcare AI. One of the leading researchers behind the computational study of Fon, playing a key role in bringing it into Google Translate. A core member of Masakhane — building AI that works for the communities that built the world's languages, not just the ones that dominate its datasets.</div>
+          </div>
+        </div>
+        <div class="person chair" style="align-items:flex-start;">
+          <img src="https://northeastgenai.github.io/assets/drprabhat.jpg" alt="Dr. Prabhat Kumar Bharti" style="width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0;" />
+          <div>
+            <div class="person-role-sm">Keynote II</div>
+            <div class="person-name-sm">Dr. Prabhat Kumar Bharti</div>
+            <div class="person-affil-sm">Assistant Professor, Dept. of CSE, Bennett University</div>
+            <div class="person-bio-sm" style="margin-top:4px;font-style:italic;color:#9b2335;font-size:0.74rem;">CO-REVIEWER: Can AI Review Like a Human? An Agentic Framework for LLM–Human Alignment in Peer Review</div>
+            <div class="person-bio-sm">AI researcher focused on trustworthy, explainable, and human-aligned AI systems for scholarly communication. Previously an Institute Postdoctoral Researcher at IIT Mandi. His CO-REVIEWER framework explores multi-agent LLM alignment in peer review.</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="person chair" style="align-items:flex-start;">
-      <img src="https://northeastgenai.github.io/assets/drprabhat.jpg" alt="Dr. Prabhat Kumar Bharti" style="width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0;" />
-      <div>
-        <div class="person-role-sm">Keynote II</div>
-        <div class="person-name-sm">Dr. Prabhat Kumar Bharti</div>
-        <div class="person-affil-sm">Assistant Professor, Dept. of CSE, Bennett University</div>
-        <div class="person-bio-sm" style="margin-top:4px;font-style:italic;color:#9b2335;font-size:0.74rem;">CO-REVIEWER: Can AI Review Like a Human? An Agentic Framework for LLM–Human Alignment in Peer Review</div>
-        <div class="person-bio-sm">AI researcher focused on trustworthy, explainable, and human-aligned AI systems for scholarly communication. Previously an Institute Postdoctoral Researcher at IIT Mandi. His CO-REVIEWER framework explores multi-agent LLM alignment in peer review.</div>
-      </div>
-    </div>
-  </div>
-</div>
 
     <div class="people-block reveal">
-  <div class="people-label">Program Committee</div>
-  <div class="people-row-2">
-    <div class="person">
-      <img src="https://northeastgenai.github.io/assets/BimanDebbarma.jpg" alt="Dr. Biman Debbarma" />
-      <div><div class="person-name-sm">Dr. Biman Debbarma</div><div class="person-affil-sm">Tripura University, Tripura</div></div>
+      <div class="people-label">Program Committee</div>
+      <div class="people-row-2">
+        <div class="person">
+          <img src="https://northeastgenai.github.io/assets/BimanDebbarma.jpg" alt="Dr. Biman Debbarma" />
+          <div><div class="person-name-sm">Dr. Biman Debbarma</div><div class="person-affil-sm">Tripura University, Tripura</div></div>
+        </div>
+        <div class="person">
+          <img src="https://northeastgenai.github.io/assets/akn.jpg" alt="Dr. Arup K Nath" />
+          <div><div class="person-name-sm">Dr. Arup K Nath</div><div class="person-affil-sm">Tezpur University<br />Assam</div></div>
+        </div>
+        <div class="person">
+          <img src="https://northeastgenai.github.io/assets/Antonios_Anastasopoulos.jpg" alt="Dr. Antonios Anastasopoulos" />
+          <div><div class="person-name-sm">Dr. Antonios Anastasopoulos</div><div class="person-affil-sm">George Mason University, Virginia<br />Collaborating Senior Researcher, Archimedes AI</div></div>
+        </div>
+        <div class="person">
+          <img src="https://northeastgenai.github.io/assets/Genevieve.jpg" alt="Genevieve Chyrmang" />
+          <div><div class="person-name-sm">Genevieve Chyrmang</div><div class="person-affil-sm">PhD Scholar & NFST Fellow,<br /> Department of Computer Science and Information Technology, Cotton University, Assam</div></div>
+        </div>
+        <div class="person">
+          <img src="https://northeastgenai.github.io/assets/ktanti.jpg" alt="Dr. Kamal Kumar Tanti" />
+          <div><div class="person-name-sm">Dr. Kamal Kumar Tanti</div><div class="person-affil-sm">Head and Assistant Professor,<br /> Department of Physics, Mahapurusha Srimanta Sankaradeva Viswavidyalaya (MSSV), Nagaon, Assam.</div></div>
+        </div>
+        <div class="person">
+          <img src="https://northeastgenai.github.io/assets/Anishajadhav.jpg" alt="Anisha Jadhav" />
+          <div><div class="person-name-sm">Anisha Jadhav</div><div class="person-affil-sm">Applied AI/ML Researcher,<br /> Alumna of California State University Monterey Bay, California, USA</div></div>
+        </div>
+      </div>
     </div>
-    <div class="person">
-      <img src="https://northeastgenai.github.io/assets/akn.jpg" alt="Dr. Arup K Nath" />
-      <div><div class="person-name-sm">Dr. Arup K Nath</div><div class="person-affil-sm">Tezpur University<br />Assam</div></div>
-    </div>
-    <div class="person">
-      <img src="https://northeastgenai.github.io/assets/Antonios_Anastasopoulos.jpg" alt="Dr. Antonios Anastasopoulos" />
-      <div><div class="person-name-sm">Dr. Antonios Anastasopoulos</div><div class="person-affil-sm">George Mason University, Virginia<br />Collaborating Senior Researcher, Archimedes AI</div></div>
-    </div>
-    <div class="person">
-      <img src="https://northeastgenai.github.io/assets/Genevieve.jpg" alt="Genevieve Chyrmang" />
-      <div><div class="person-name-sm">Genevieve Chyrmang</div><div class="person-affil-sm">PhD Scholar & NFST Fellow,<br /> Department of Computer Science and Information Technology, Cotton University, Assam</div></div>
-    </div>
-    <div class="person">
-      <img src="https://northeastgenai.github.io/assets/ktanti.jpg" alt="Dr. Kamal Kumar Tanti" />
-      <div><div class="person-name-sm">Dr. Kamal Kumar Tanti</div><div class="person-affil-sm">Head and Assistant Professor,<br /> Department of Physics, Mahapurusha Srimanta Sankaradeva Viswavidyalaya (MSSV), Nagaon, Assam.</div></div>
-    </div>
-    <div class="person">
-      <img src="https://northeastgenai.github.io/assets/Anishajadhav.jpg" alt="Anisha Jadhav" />
-      <div><div class="person-name-sm">Anisha Jadhav</div><div class="person-affil-sm">Applied AI/ML Researcher,<br /> Alumna of California State University Monterey Bay, California, USA</div></div>
-    </div>
-  </div>
-</div>
 
     <div class="people-block reveal">
       <div class="people-label">Organizing Team</div>
@@ -503,29 +593,10 @@ footer { background: #111; padding: 48px 0; }
 
 <hr class="sep" />
 
-<!-- JOIN -->
-<section id="join">
-  <div class="container">
-    <p class="section-tag reveal">Get Involved</p>
-    <h2 class="section-heading reveal">Sponsor, Partner, or Collaborate</h2>
-    <div class="involve-grid">
-      <div class="involve-card reveal"><span class="involve-tag">Academic</span><h3>Academic Co-chair</h3><p>Faculty from NE Indian universities. Your institution on the website and proceedings. Minimal commitment.</p><a href="mailto:connect@mwirelabs.com">Express interest →</a></div>
-      <div class="involve-card reveal"><span class="involve-tag">Institutional</span><h3>Institutional Partner</h3><p>Research institutes, government bodies, and NGOs in language, biodiversity, or heritage.</p><a href="mailto:connect@mwirelabs.com">Get in touch →</a></div>
-      <div class="involve-card reveal"><span class="involve-tag">Sponsor</span><h3>Sponsor</h3><p>Support via compute credits, outreach, or future edition backing. Acknowledged in proceedings.</p><a href="mailto:connect@mwirelabs.com">Discuss →</a></div>
-    </div>
-    <div class="contact-strip reveal">
-      <p>All enquiries:</p>
-      <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a>
-    </div>
-  </div>
-</section>
-
-<hr class="sep" />
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-     <div>
+    <div>
       <div class="footer-brand">NortheastGenAI 2026</div>
       <div class="footer-meta">
         Organized by <a href="https://mwirelabs.com" target="_blank">MWire Labs</a><br />
@@ -533,10 +604,10 @@ footer { background: #111; padding: 48px 0; }
         <a href="mailto:connect@mwirelabs.com">connect@mwirelabs.com</a>
       </div>
       <div class="footer-logos">
-  <img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" />
-  <img src="https://northeastgenai.github.io/assets/cohere_white.svg" alt="Cohere Labs" style="height:20px;" />
-</div>
-<div style="font-size:0.7rem;color:#555;margin-top:8px;">Cohere Labs Catalyst Grant Recipient</div>
+        <img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" />
+        <img src="https://northeastgenai.github.io/assets/cohere_white.svg" alt="Cohere Labs" style="height:20px;" />
+      </div>
+      <div style="font-size:0.7rem;color:#555;margin-top:8px;">Cohere Labs Catalyst Grant Recipient</div>
     </div>
     <div class="footer-col">
       <a href="#about">About</a>
@@ -544,7 +615,6 @@ footer { background: #111; padding: 48px 0; }
       <a href="#program">Program</a>
       <a href="cfp.html">Call for Papers</a>
       <a href="#team">Team</a>
-      <a href="#join">Get Involved</a>
       <a href="https://mwirelabs.com" target="_blank">MWire Labs ↗</a>
       <a href="https://northeastlangchive.org" target="_blank">Northeast Langchive ↗</a>
     </div>
