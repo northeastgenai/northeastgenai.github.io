@@ -251,6 +251,7 @@ footer { background: #111; padding: 48px 0; }
   .publisher-strip { flex-direction: column; align-items: flex-start; gap: 10px; }
   .paper-card-top { flex-direction: column; }
   .paper-card-actions { width: 100%; }
+  .awards-grid { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 480px) {
   .hero-actions { flex-direction: column; align-items: center; }
@@ -478,9 +479,24 @@ footer { background: #111; padding: 48px 0; }
       </div>
       <div class="prog-item"><div class="prog-time">12:35 to 12:50</div><div><div class="prog-name">Closing and Proceedings</div><div class="prog-desc">Proceedings PDF released via Northeast Langchive. NortheastGenAI 2027 announcement.</div></div></div>
     </div>
-    <div class="publisher-strip reveal" style="margin-top:28px;">
+    <div class="reveal" style="margin-top:28px;margin-bottom:20px;">
+      <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#888;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #e5e5e5;">Best Paper Awards</div>
+      <div class="awards-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:16px 18px;background:#fff;">
+          <div style="font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9b2335;margin-bottom:6px;">🏆 Best Paper</div>
+          <div style="font-size:0.83rem;font-weight:700;color:#111;line-height:1.4;margin-bottom:4px;">Language, Artificial Intelligence, and Digital Equity in North East India</div>
+          <div style="font-size:0.76rem;color:#888;">Amme Shirisha, Baksheesh Sachar</div>
+        </div>
+        <div style="border:1px solid #e5e5e5;border-left:3px solid #9b2335;padding:16px 18px;background:#fff;">
+          <div style="font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9b2335;margin-bottom:6px;">✦ Best Exploratory Paper</div>
+          <div style="font-size:0.83rem;font-weight:700;color:#111;line-height:1.4;margin-bottom:4px;">AssamBench: Toward a Comprehensive Benchmark for Evaluating LLMs on Assamese</div>
+          <div style="font-size:0.76rem;color:#888;">Jubeir Jadid, Mustafa Azad Hussain</div>
+        </div>
+      </div>
+    </div>
+    <div class="publisher-strip reveal" style="margin-top:8px;">
       <img src="https://northeastgenai.github.io/assets/langchivelogo.png" alt="Northeast Langchive" />
-      <p><strong>Proceedings Publisher — Northeast Langchive</strong> · Academic book series with ISBN, CC-BY-4.0. <a href="https://northeastlangchive.org" target="_blank">northeastlangchive.org ↗</a></p>
+      <p><strong>Proceedings Publisher — Northeast Langchive</strong> · CC-BY-4.0 · ISBN 978-81-997217-0-8 · <a href="https://northeastlangchive.org" target="_blank">northeastlangchive.org ↗</a></p>
     </div>
   </div>
 </section>
